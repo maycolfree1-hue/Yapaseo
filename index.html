@@ -13,7 +13,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Yapaseo | Agencia de Marketing Digital en Lima">
-    <meta property="og:description" content="Escala tu facturación and domina el mercado con infraestructura digital de alta conversión.">
+    <meta property="og:description" content="Escala tu facturación y domina el mercado con infraestructura digital de alta conversión.">
     <meta property="og:image" content="yapaseo-rectangular-blanco.png">
     <meta property="og:url" content="https://yapaseo.com">
 
@@ -102,7 +102,7 @@
             padding: 140px 6% 0 6%;
             position: relative; 
             background-color: var(--yellow-brand);
-            overflow: hidden; /* Evita cualquier desborde no deseado */
+            overflow: hidden; 
         }
         
         .hero-container {
@@ -158,7 +158,7 @@
             padding: 0;
         }
         
-        /* CONTENEDOR DEL BÚHO - AJUSTADO PARA MÁXIMO TAMAÑO */
+        /* CONTENEDOR DEL BÚHO */
         .hero-image-wrapper {
             position: absolute;
             right: -2%; 
@@ -168,18 +168,23 @@
             justify-content: center;
             align-items: flex-end;
             z-index: 1; 
-            pointer-events: none; 
+            /* Se quitó pointer-events: none para calcular mejor las posiciones en escritorio */
         }
         
         .hero-image-wrapper img {
             width: 215%; 
-            max-width: 960px; /* ¡Ahora es masivo e imponente! */
+            max-width: 960px; 
             height: auto;
             object-fit: contain;
-            transform: translateY(35px); /* Lo bajamos estratégicamente */
+            
+            /* Posición base inicial (bajada a 35px) */
+            transform: translateY(35px); 
+            
+            /* Transición suave para que el movimiento de seguimiento no sea brusco */
+            transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+            
             filter: drop-shadow(0 20px 50px rgba(0,0,0,0.25));
             
-            /* EFECTO MÁSCARA: Difumina los últimos píxeles inferiores eliminando el corte recto */
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 96%);
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 96%);
         }
@@ -298,7 +303,8 @@
             .hero-content h1 { align-items: center; }
             
             .hero-image-wrapper { position: relative; width: 85%; max-width: 440px; margin: 0 auto; bottom: 0; right: 0; }
-            .hero-image-wrapper img { width: 100%; transform: translateY(25px); -webkit-mask-image: none; mask-image: none; }
+            /* En móvil desactivamos la máscara y el efecto interactivo para mejor rendimiento */
+            .hero-image-wrapper img { width: 100%; transform: translateY(25px) !important; -webkit-mask-image: none; mask-image: none; }
             
             .features-bar { flex-direction: column; gap: 20px; padding: 25px; border-radius: 20px; margin-top: 20px; }
             .features-divider { display: none; }
@@ -337,7 +343,8 @@
             </div>
 
             <div class="hero-image-wrapper">
-                <img src="buho-yapaseo.png" alt="Yapaseo Búho">
+                <!-- Se añade ID para manejar la interactividad por JS -->
+                <img id="interactive-owl" src="buho-yapaseo.png" alt="Yapaseo Búho">
             </div>
         </div>
 
@@ -490,6 +497,7 @@
     </section>
 
     <script>
+        // SCRIPT 1: Control del Header inteligente
         let lastScrollTop = 0;
         const nav = document.getElementById('smart-nav');
         window.addEventListener('scroll', function() {
@@ -500,6 +508,47 @@
             else nav.classList.remove('nav-hidden');
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
+
+        // SCRIPT 2: Efecto Parallax Invertido e Inteligente para el Búho Gigante
+        const owl = document.getElementById('interactive-owl');
+        
+        // Ejecutar solo si el usuario no está en un celular (pantallas mayores a 900px)
+        if (window.innerWidth > 900) {
+            document.addEventListener('mousemove', (e) => {
+                // Obtenemos el centro visual del búho
+                const owlRect = owl.getBoundingClientRect();
+                const owlCenterX = owlRect.left + owlRect.width / 2;
+                const owlCenterY = owlRect.top + owlRect.height / 2;
+
+                // Calculamos la distancia del cursor respecto al centro del búho
+                const deltaX = e.clientX - owlCenterX;
+                const deltaY = e.clientY - owlCenterY;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+                // Radio de activación: solo reacciona si el mouse está a menos de 750px de distancia
+                const maxDistance = 750;
+
+                if (distance < maxDistance) {
+                    // Factor de fuerza: entre más cerca, mayor interacción. Máximo movimiento de 30px.
+                    const strength = (1 - (distance / maxDistance)) * 30;
+                    
+                    // Calculamos los componentes opuestos (-delta) para hacer el efecto invertido
+                    const moveX = -(deltaX / distance) * strength;
+                    const moveY = -(deltaY / distance) * strength;
+
+                    // Aplicamos el movimiento respetando el ajuste base vertical de 35px
+                    owl.style.transform = `translate(${moveX}px, ${35 + moveY}px)`;
+                } else {
+                    // Si el cursor se aleja mucho, regresa suavemente a su posición gigante original
+                    owl.style.transform = `translate(0px, 35px)`;
+                }
+            });
+
+            // Si el mouse sale de la ventana, regresa a la posición central por defecto
+            document.addEventListener('mouseleave', () => {
+                owl.style.transform = `translate(0px, 35px)`;
+            });
+        }
     </script>
 </body>
 </html>
