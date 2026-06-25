@@ -95,7 +95,6 @@
             display: block;
         }
 
-        /* Estilos para el cambio dinámico de logos */
         .logo-light {
             display: none;
         }
@@ -182,7 +181,7 @@
         }
 
         .hero-content { 
-            max-width: 60%; 
+            max-width: 55%; /* Ajustado ligeramente para dar espacio al búho */
             text-align: left; 
         }
         
@@ -223,18 +222,22 @@
             padding: 0;
         }
         
+        /* ¡BÚHO MÁS GRANDE AQUÍ! */
         .hero-image-wrapper {
-            max-width: 40%;
+            max-width: 45%; /* Aumentado de 40% a 45% */
+            width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end; /* Lo alinea hacia abajo para que asiente bien */
             perspective: 1000px;
         }
         .hero-image-wrapper img {
-            max-width: 100%;
+            width: 115%; /* Hace que la imagen desborde sutilmente su contenedor para verse más imponente */
+            max-width: 520px; /* Límite máximo para pantallas gigantes */
             height: auto;
             object-fit: contain;
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.25));
+            transform: translateY(10px); /* Ajuste de posición vertical */
         }
 
         /* RECTÁNGULO DE CARACTERÍSTICAS */
@@ -396,7 +399,8 @@
             .hero-container { flex-direction: column; text-align: center; gap: 40px; }
             .hero-content { max-width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; }
             .hero-content h1 { align-items: center; }
-            .hero-image-wrapper { max-width: 75%; }
+            .hero-image-wrapper { max-width: 85%; }
+            .hero-image-wrapper img { width: 100%; transform: translateY(0); }
             .features-bar { flex-direction: column; gap: 20px; padding: 25px; border-radius: 20px; }
             .features-divider { display: none; }
             .about-container { flex-direction: column; }
