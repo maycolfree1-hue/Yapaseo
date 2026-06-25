@@ -57,113 +57,48 @@
             left: 0;
         }
 
-        nav.nav-hidden {
-            transform: translateY(-100%);
-        }
+        nav.nav-hidden { transform: translateY(-100%); }
 
         nav.nav-scrolled {
             background-color: var(--scroll-bg) !important;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
-        nav.nav-scrolled .logo-divider {
-            color: rgba(255, 255, 255, 0.4);
-        }
+        nav.nav-scrolled .logo-divider { color: rgba(255, 255, 255, 0.4); }
+        nav.nav-scrolled .logo-tagline { color: #ffffff; }
+        nav.nav-scrolled .nav-links a { color: #ffffff; }
+        nav.nav-scrolled .nav-links a:hover { color: var(--accent); }
 
-        nav.nav-scrolled .logo-tagline {
-            color: #ffffff;
-        }
+        .logo-container { display: flex; align-items: center; text-decoration: none; color: var(--dark-hero); }
+        .logo-img { height: 45px; width: auto; display: block; }
+        .logo-light { display: none; }
+        .logo-dark { display: block; }
 
-        nav.nav-scrolled .nav-links a {
-            color: #ffffff;
-        }
-        
-        nav.nav-scrolled .nav-links a:hover {
-            color: var(--accent); 
-        }
+        nav.nav-scrolled .logo-dark { display: none; }
+        nav.nav-scrolled .logo-light { display: block; }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--dark-hero);
-        }
+        .logo-divider { margin: 0 12px; color: rgba(0,0,0,0.3); font-size: 18px; font-weight: 300; transition: color 0.4s ease; }
+        .logo-tagline { font-size: 14px; font-weight: 700; color: rgba(0,0,0,0.8); letter-spacing: 0.2px; text-transform: none; transition: color 0.4s ease; }
+        .logo-container:hover .logo-tagline { color: var(--primary); }
+        nav.nav-scrolled .logo-container:hover .logo-tagline { color: var(--accent); }
 
-        .logo-img { 
-            height: 45px; 
-            width: auto; 
-            display: block;
-        }
-
-        .logo-light {
-            display: none;
-        }
-        .logo-dark {
-            display: block;
-        }
-
-        nav.nav-scrolled .logo-dark {
-            display: none;
-        }
-        nav.nav-scrolled .logo-light {
-            display: block;
-        }
-
-        .logo-divider {
-            margin: 0 12px;
-            color: rgba(0,0,0,0.3); 
-            font-size: 18px;
-            font-weight: 300;
-            transition: color 0.4s ease;
-        }
-
-        .logo-tagline {
-            font-size: 14px;
-            font-weight: 700;
-            color: rgba(0,0,0,0.8);
-            letter-spacing: 0.2px;
-            text-transform: none;
-            transition: color 0.4s ease;
-        }
-        .logo-container:hover .logo-tagline {
-            color: var(--primary);
-        }
-        nav.nav-scrolled .logo-container:hover .logo-tagline {
-            color: var(--accent);
-        }
-
-        .nav-links { 
-            display: flex; 
-            gap: 18px; 
-            align-items: center; 
-            margin-left: auto; 
-            margin-right: 30px; 
-        }
-        
-        .nav-links a {
-            color: rgba(0,0,0,0.8); text-decoration: none;
-            font-size: 14px; font-weight: 700;
-            transition: color 0.4s ease; letter-spacing: 0.2px;
-            text-transform: none;
-        }
+        .nav-links { display: flex; gap: 18px; align-items: center; margin-left: auto; margin-right: 30px; }
+        .nav-links a { color: rgba(0,0,0,0.8); text-decoration: none; font-size: 14px; font-weight: 700; transition: color 0.4s ease; letter-spacing: 0.2px; }
         .nav-links a:hover { color: var(--primary); }
 
         .btn-nav-ws {
             background: var(--primary); color: white; padding: 10px 22px;
             border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 13px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px;
         }
         .btn-nav-ws:hover { background: #0a378a; }
 
-        /* HERO */
+        /* HERO AJUSTADO */
         .hero {
             min-height: 100vh; 
             display: flex; 
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between; /* Permite una distribución limpia arriba/abajo */
             padding: 140px 6% 0 6%;
             position: relative; 
             background-color: var(--yellow-brand);
@@ -177,12 +112,13 @@
             z-index: 2;
             gap: 30px;
             flex-grow: 1;
-            padding-bottom: 40px;
+            position: relative; /* Clave para el posicionamiento absoluto del búho */
         }
 
         .hero-content { 
-            max-width: 55%; /* Ajustado ligeramente para dar espacio al búho */
+            max-width: 55%; 
             text-align: left; 
+            padding-bottom: 60px; /* Despeja espacio inferior */
         }
         
         .hero-content h1 { 
@@ -222,25 +158,29 @@
             padding: 0;
         }
         
-        /* ¡BÚHO MÁS GRANDE AQUÍ! */
+        /* BÚHO GIGANTE APOYADO EN EL CUADRO NEGRO */
         .hero-image-wrapper {
-            max-width: 45%; /* Aumentado de 40% a 45% */
-            width: 100%;
+            position: absolute;
+            right: 0;
+            bottom: 0; /* Lo pega completamente al ras inferior del contenedor */
+            width: 45%;
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Lo alinea hacia abajo para que asiente bien */
-            perspective: 1000px;
+            align-items: flex-end;
+            z-index: 2; /* Por encima del fondo amarillo */
         }
+        
         .hero-image-wrapper img {
-            width: 115%; /* Hace que la imagen desborde sutilmente su contenedor para verse más imponente */
-            max-width: 520px; /* Límite máximo para pantallas gigantes */
+            width: 130%; /* Escalado masivo para que gane volumen */
+            max-width: 580px; /* Evita que crezca desproporcionadamente en monitores enormes */
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.25));
-            transform: translateY(10px); /* Ajuste de posición vertical */
+            /* La base se desplaza ligeramente hacia abajo para calzar exactamente detrás de la barra */
+            transform: translateY(5px); 
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
         }
 
-        /* RECTÁNGULO DE CARACTERÍSTICAS */
+        /* BARRA NEGRA CON MÁXIMA PRIORIDAD VISUAL */
         .features-bar {
             background-color: #0c0f14;
             display: flex;
@@ -251,7 +191,8 @@
             max-width: 1140px;
             width: 100%;
             margin: 0 auto;
-            z-index: 3;
+            position: relative;
+            z-index: 10; /* Un z-index alto garantiza que oculte el corte del cuerpo del búho */
             border: 1px solid rgba(255,255,255,0.06);
             border-bottom: none;
         }
@@ -265,46 +206,19 @@
             font-weight: 700;
         }
 
-        .icon-gold {
-            color: var(--yellow-brand);
-            font-size: 20px;
-        }
+        .icon-gold { color: var(--yellow-brand); font-size: 20px; }
+        .features-divider { width: 1px; height: 25px; background-color: rgba(255,255,255,0.12); }
 
-        .features-divider {
-            width: 1px;
-            height: 25px;
-            background-color: rgba(255,255,255,0.12);
-        }
-
-        /* SERVICIOS */
+        /* SECCIONES RESTANTES */
         section { padding: 100px 8%; position: relative; }
         .section-tag { color: var(--accent); letter-spacing: 3px; font-weight: bold; text-align: center; display: block; margin-bottom: 10px; font-size: 14px; }
-        
-        .section-title { 
-            font-family: 'Bebas Neue', sans-serif;
-            text-align: center; 
-            font-size: 55px; 
-            margin-bottom: 60px; 
-            letter-spacing: 1px;
-        }
+        .section-title { font-family: 'Bebas Neue', sans-serif; text-align: center; font-size: 55px; margin-bottom: 60px; letter-spacing: 1px; }
 
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            max-width: 1200px; 
-            margin: 0 auto;
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
         .service-card {
-            background: var(--card-bg); 
-            padding: 40px; 
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.05); 
-            transition: 0.4s ease;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: var(--card-bg); padding: 40px; border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.4s ease;
+            text-align: center; display: flex; flex-direction: column; justify-content: space-between;
         }
         .service-card:hover { border-color: var(--accent); transform: translateY(-10px); }
         .service-card i { font-size: 45px; color: var(--accent); margin-bottom: 25px; }
@@ -320,11 +234,7 @@
         }
         .service-card:hover .btn-card { background: var(--primary); border-color: var(--primary); }
 
-        /* PORTAFOLIO BENTO */
-        .bento-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 300px); gap: 20px; max-width: 1200px; margin: 0 auto;
-        }
+        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 300px); gap: 20px; max-width: 1200px; margin: 0 auto; }
         .bento-item { position: relative; border-radius: 30px; overflow: hidden; background: #1f2937; cursor: pointer; }
         .bento-item.tall { grid-row: span 2; } 
         .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
@@ -335,15 +245,7 @@
             display: flex; flex-direction: column; justify-content: flex-end; padding: 30px;
         }
 
-        /* METODOLOGÍA */
-        .metodologia-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 50px auto 0 auto;
-        }
+        .metodologia-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 50px auto 0 auto; }
         .metodologia-card {
             flex: 1; min-width: 280px; max-width: 360px;
             background: var(--card-bg); padding: 40px 30px; border-radius: 30px;
@@ -357,16 +259,13 @@
         }
         .metodologia-card i { font-size: 40px; color: var(--yellow-brand); margin-bottom: 20px; display: block; }
 
-        /* NOSOTROS */
         .about-container { display: flex; gap: 50px; align-items: center; max-width: 1200px; margin: 0 auto; }
         .about-text { flex: 1; }
         .about-img { flex: 1; border-radius: 30px; width: 100%; height: 450px; object-fit: cover; }
 
-        /* TESTIMONIOS */
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
         .testi-card { background: rgba(255,255,255,0.03); padding: 40px; border-radius: 30px; border-left: 4px solid var(--accent); }
 
-        /* CONTACTO */
         .contact-container {
             display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; max-width: 1100px;
             margin: 0 auto; background: linear-gradient(135deg, var(--card-bg), rgba(0, 129, 201, 0.1));
@@ -376,16 +275,10 @@
         .contact-form-side { background: rgba(3, 7, 18, 0.6); padding: 35px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 8px; color: var(--text-gray); text-transform: uppercase; }
-        .form-control {
-            width: 100%; padding: 14px 20px; background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; font-size: 15px;
-        }
-        .btn-submit {
-            width: 100%; background: var(--primary); color: white; padding: 15px;
-            border: none; border-radius: 50px; font-weight: bold; font-size: 15px; cursor: pointer;
-        }
+        .form-control { width: 100%; padding: 14px 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; font-size: 15px; }
+        .btn-submit { width: 100%; background: var(--primary); color: white; padding: 15px; border: none; border-radius: 50px; font-weight: bold; font-size: 15px; cursor: pointer; }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE CONTROLADO */
         @media (max-width: 992px) {
             nav { padding: 15px 3%; }
             .logo-img { height: 38px; }
@@ -395,13 +288,16 @@
 
         @media (max-width: 900px) {
             .nav-links { display: none; }
-            .hero { padding: 140px 6% 0 6%; }
-            .hero-container { flex-direction: column; text-align: center; gap: 40px; }
-            .hero-content { max-width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; }
+            .hero { padding: 120px 6% 0 6%; min-height: auto; }
+            .hero-container { flex-direction: column; text-align: center; gap: 20px; padding-bottom: 0; }
+            .hero-content { max-width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; padding-bottom: 20px; }
             .hero-content h1 { align-items: center; }
-            .hero-image-wrapper { max-width: 85%; }
-            .hero-image-wrapper img { width: 100%; transform: translateY(0); }
-            .features-bar { flex-direction: column; gap: 20px; padding: 25px; border-radius: 20px; }
+            
+            /* Ajuste adaptativo para móviles: vuelve al flujo normal sin corte molesto */
+            .hero-image-wrapper { position: relative; width: 80%; max-width: 380px; margin: 0 auto; }
+            .hero-image-wrapper img { width: 100%; transform: translateY(25px); }
+            
+            .features-bar { flex-direction: column; gap: 20px; padding: 25px; border-radius: 20px; margin-top: 20px; }
             .features-divider { display: none; }
             .about-container { flex-direction: column; }
             .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
@@ -416,7 +312,6 @@
         <a href="#inicio" class="logo-container">
             <img src="yapaseo-rectangular-negro.png" alt="Yapaseo Logo Negro" class="logo-img logo-dark">
             <img src="yapaseo-rectangular-blanco.png" alt="Yapaseo Logo Blanco" class="logo-img logo-light">
-            
             <span class="logo-divider">|</span>
             <span class="logo-tagline">Agencia de Marketing en Lima</span>
         </a>
@@ -461,6 +356,7 @@
         </div>
     </section>
 
+    <!-- Resto de secciones del documento se mantienen idénticas -->
     <section id="servicios">
         <span class="section-tag">NUESTROS SERVICIOS</span>
         <h2 class="section-title">Especialidades a tu medida</h2>
@@ -510,30 +406,12 @@
         <span class="section-tag">TRABAJOS</span>
         <h2 class="section-title">Casos de Éxito</h2>
         <div class="bento-grid">
-            <div class="bento-item tall">
-                <img src="proyecto1.jpg" alt="InkaBrew">
-                <div class="bento-overlay"><h3>InkaBrew</h3></div>
-            </div>
-            <div class="bento-item">
-                <img src="proyecto2.jpg" alt="VitalFit">
-                <div class="bento-overlay"><h3>VitalFit</h3></div>
-            </div>
-            <div class="bento-item">
-                <img src="proyecto3.jpg" alt="GreenRoots">
-                <div class="bento-overlay"><h3>GreenRoots</h3></div>
-            </div>
-            <div class="bento-item">
-                <img src="proyecto4.jpg" alt="Dental Care">
-                <div class="bento-overlay"><h3>Dental Care</h3></div>
-            </div>
-            <div class="bento-item tall">
-                <img src="proyecto5.jpg" alt="UrbanStyle">
-                <div class="bento-overlay"><h3>UrbanStyle</h3></div>
-            </div>
-            <div class="bento-item">
-                <img src="proyecto6.jpg" alt="CasaMar">
-                <div class="bento-overlay"><h3>CasaMar</h3></div>
-            </div>
+            <div class="bento-item tall"><img src="proyecto1.jpg" alt="InkaBrew"><div class="bento-overlay"><h3>InkaBrew</h3></div></div>
+            <div class="bento-item"><img src="proyecto2.jpg" alt="VitalFit"><div class="bento-overlay"><h3>VitalFit</h3></div></div>
+            <div class="bento-item"><img src="proyecto3.jpg" alt="GreenRoots"><div class="bento-overlay"><h3>GreenRoots</h3></div></div>
+            <div class="bento-item"><img src="proyecto4.jpg" alt="Dental Care"><div class="bento-overlay"><h3>Dental Care</h3></div></div>
+            <div class="bento-item tall"><img src="proyecto5.jpg" alt="UrbanStyle"><div class="bento-overlay"><h3>UrbanStyle</h3></div></div>
+            <div class="bento-item">img src="proyecto6.jpg" alt="CasaMar"><div class="bento-overlay"><h3>CasaMar</h3></div></div>
         </div>
     </section>
 
@@ -577,14 +455,8 @@
         <span class="section-tag">TESTIMONIOS</span>
         <h2 class="section-title">Opiniones de clientes</h2>
         <div class="testimonials-grid">
-            <div class="testi-card">
-                <p>"La estructura web y estrategia de contenido cambiaron la recepción de leads por completo."</p>
-                <h4>- Juan de InkaBrew</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Un equipo profesional, veloz y muy enfocado en lograr objetivos reales."</p>
-                <h4>- Carlos de VitalFit</h4>
-            </div>
+            <div class="testi-card"><p>"La estructura web y estrategia de contenido cambiaron la recepción de leads por completo."</p><h4>- Juan de InkaBrew</h4></div>
+            <div class="testi-card"><p>"Un equipo profesional, veloz y muy enfocado en lograr objetivos reales."</p><h4>- Carlos de VitalFit</h4></div>
         </div>
     </section>
 
@@ -595,7 +467,7 @@
             <div class="contact-info-side">
                 <h3 style="font-size: 32px; margin-bottom: 15px; font-weight: 800;">Hablemos hoy</h3>
                 <p style="color: var(--text-gray); margin-bottom: 30px;">Puedes agendar directo por WhatsApp para una asesoría veloz.</p>
-                <a href="https://wa.me/51971050584" class="cta-main" style="justify-content: center;">
+                <a href="https://wa.me/51971050584" class="btn-nav-ws" style="justify-content: center; padding: 15px;">
                     <i class="fab fa-whatsapp"></i> HABLAR POR WHATSAPP
                 </a>
             </div>
@@ -618,22 +490,12 @@
     <script>
         let lastScrollTop = 0;
         const nav = document.getElementById('smart-nav');
-        
         window.addEventListener('scroll', function() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 50) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
-            
-            if (scrollTop > lastScrollTop && scrollTop > 150) {
-                nav.classList.add('nav-hidden');
-            } else {
-                nav.classList.remove('nav-hidden');
-            }
-            
+            if (scrollTop > 50) nav.classList.add('nav-scrolled');
+            else nav.classList.remove('nav-scrolled');
+            if (scrollTop > lastScrollTop && scrollTop > 150) nav.classList.add('nav-hidden');
+            else nav.classList.remove('nav-hidden');
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
     </script>
