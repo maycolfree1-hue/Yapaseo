@@ -13,7 +13,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Yapaseo | Agencia de Marketing Digital en Lima">
-    <meta property="og:description" content="Escala tu facturación y domina el mercado con infraestructura digital de alta conversión.">
+    <meta property="og:description" content="Escala tu facturación and domina el mercado con infraestructura digital de alta conversión.">
     <meta property="og:image" content="yapaseo-rectangular-blanco.png">
     <meta property="og:url" content="https://yapaseo.com">
 
@@ -102,6 +102,7 @@
             padding: 140px 6% 0 6%;
             position: relative; 
             background-color: var(--yellow-brand);
+            overflow: hidden; /* Evita cualquier desborde no deseado */
         }
         
         .hero-container {
@@ -157,12 +158,12 @@
             padding: 0;
         }
         
-        /* POSICIONAMIENTO DEL BÚHO CORREGIDO ARRIBA */
+        /* CONTENEDOR DEL BÚHO - AJUSTADO PARA MÁXIMO TAMAÑO */
         .hero-image-wrapper {
             position: absolute;
-            right: 2%; 
-            bottom: 35px; 
-            width: 55%; 
+            right: -2%; 
+            bottom: 0px; 
+            width: 58%; 
             display: flex;
             justify-content: center;
             align-items: flex-end;
@@ -171,13 +172,16 @@
         }
         
         .hero-image-wrapper img {
-            width: 195%; 
-            max-width: 820px; 
+            width: 215%; 
+            max-width: 960px; /* ¡Ahora es masivo e imponente! */
             height: auto;
             object-fit: contain;
-            /* Subido a 12px para que la base quede oculta perfectamente por la barra oscura */
-            transform: translateY(12px); 
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.22));
+            transform: translateY(35px); /* Lo bajamos estratégicamente */
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.25));
+            
+            /* EFECTO MÁSCARA: Difumina los últimos píxeles inferiores eliminando el corte recto */
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 96%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 96%);
         }
 
         /* CUADRO NEGRO (BARRA DE CARACTERÍSTICAS) */
@@ -293,8 +297,8 @@
             .hero-content { max-width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; padding-bottom: 20px; }
             .hero-content h1 { align-items: center; }
             
-            .hero-image-wrapper { position: relative; width: 80%; max-width: 380px; margin: 0 auto; bottom: 0; right: 0; }
-            .hero-image-wrapper img { width: 100%; transform: translateY(25px); }
+            .hero-image-wrapper { position: relative; width: 85%; max-width: 440px; margin: 0 auto; bottom: 0; right: 0; }
+            .hero-image-wrapper img { width: 100%; transform: translateY(25px); -webkit-mask-image: none; mask-image: none; }
             
             .features-bar { flex-direction: column; gap: 20px; padding: 25px; border-radius: 20px; margin-top: 20px; }
             .features-divider { display: none; }
