@@ -17,7 +17,9 @@
     <meta property="og:image" content="yapaseo-rectangular-blanco.png">
     <meta property="og:url" content="https://yapaseo.com">
 
-    <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+    <!-- ¡FAVICON IMPLEMENTADO AQUÍ! -->
+    <link rel="icon" type="image/png" href="Favicon-yapaseo">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -158,7 +160,7 @@
             padding: 0;
         }
         
-        /* CONTENEDOR DEL BÚHO */
+        /* CONTENEDOR DEL BÚHO GIGANTE */
         .hero-image-wrapper {
             position: absolute;
             right: -2%; 
@@ -168,7 +170,6 @@
             justify-content: center;
             align-items: flex-end;
             z-index: 1; 
-            /* Se quitó pointer-events: none para calcular mejor las posiciones en escritorio */
         }
         
         .hero-image-wrapper img {
@@ -176,20 +177,14 @@
             max-width: 960px; 
             height: auto;
             object-fit: contain;
-            
-            /* Posición base inicial (bajada a 35px) */
             transform: translateY(35px); 
-            
-            /* Transición suave para que el movimiento de seguimiento no sea brusco */
             transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
-            
             filter: drop-shadow(0 20px 50px rgba(0,0,0,0.25));
-            
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 96%);
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 96%);
         }
 
-        /* CUADRO NEGRO (BARRA DE CARACTERÍSTICAS) */
+        /* CUADRO NEGRO */
         .features-bar {
             background-color: #0c0f14;
             display: flex;
@@ -218,7 +213,7 @@
         .icon-gold { color: var(--yellow-brand); font-size: 20px; }
         .features-divider { width: 1px; height: 25px; background-color: rgba(255,255,255,0.12); }
 
-        /* RESTO DE SECCIONES */
+        /* SECCIONES COMPLEMENTARIAS */
         section { padding: 100px 8%; position: relative; }
         .section-tag { color: var(--accent); letter-spacing: 3px; font-weight: bold; text-align: center; display: block; margin-bottom: 10px; font-size: 14px; }
         .section-title { font-family: 'Bebas Neue', sans-serif; text-align: center; font-size: 55px; margin-bottom: 60px; letter-spacing: 1px; }
@@ -287,7 +282,7 @@
         .form-control { width: 100%; padding: 14px 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; font-size: 15px; }
         .btn-submit { width: 100%; background: var(--primary); color: white; padding: 15px; border: none; border-radius: 50px; font-weight: bold; font-size: 15px; cursor: pointer; }
 
-        /* RESPONSIVE CONTROLADO */
+        /* RESPONSIVE */
         @media (max-width: 992px) {
             nav { padding: 15px 3%; }
             .logo-img { height: 38px; }
@@ -303,7 +298,6 @@
             .hero-content h1 { align-items: center; }
             
             .hero-image-wrapper { position: relative; width: 85%; max-width: 440px; margin: 0 auto; bottom: 0; right: 0; }
-            /* En móvil desactivamos la máscara y el efecto interactivo para mejor rendimiento */
             .hero-image-wrapper img { width: 100%; transform: translateY(25px) !important; -webkit-mask-image: none; mask-image: none; }
             
             .features-bar { flex-direction: column; gap: 20px; padding: 25px; border-radius: 20px; margin-top: 20px; }
@@ -343,7 +337,6 @@
             </div>
 
             <div class="hero-image-wrapper">
-                <!-- Se añade ID para manejar la interactividad por JS -->
                 <img id="interactive-owl" src="buho-yapaseo.png" alt="Yapaseo Búho">
             </div>
         </div>
@@ -497,7 +490,7 @@
     </section>
 
     <script>
-        // SCRIPT 1: Control del Header inteligente
+        // SCRIPT 1: Header inteligente
         let lastScrollTop = 0;
         const nav = document.getElementById('smart-nav');
         window.addEventListener('scroll', function() {
@@ -509,42 +502,32 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        // SCRIPT 2: Efecto Parallax Invertido e Inteligente para el Búho Gigante
+        // SCRIPT 2: Parallax Invertido Inteligente
         const owl = document.getElementById('interactive-owl');
         
-        // Ejecutar solo si el usuario no está en un celular (pantallas mayores a 900px)
         if (window.innerWidth > 900) {
             document.addEventListener('mousemove', (e) => {
-                // Obtenemos el centro visual del búho
                 const owlRect = owl.getBoundingClientRect();
                 const owlCenterX = owlRect.left + owlRect.width / 2;
                 const owlCenterY = owlRect.top + owlRect.height / 2;
 
-                // Calculamos la distancia del cursor respecto al centro del búho
                 const deltaX = e.clientX - owlCenterX;
                 const deltaY = e.clientY - owlCenterY;
                 const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-                // Radio de activación: solo reacciona si el mouse está a menos de 750px de distancia
                 const maxDistance = 750;
 
                 if (distance < maxDistance) {
-                    // Factor de fuerza: entre más cerca, mayor interacción. Máximo movimiento de 30px.
                     const strength = (1 - (distance / maxDistance)) * 30;
-                    
-                    // Calculamos los componentes opuestos (-delta) para hacer el efecto invertido
                     const moveX = -(deltaX / distance) * strength;
                     const moveY = -(deltaY / distance) * strength;
 
-                    // Aplicamos el movimiento respetando el ajuste base vertical de 35px
                     owl.style.transform = `translate(${moveX}px, ${35 + moveY}px)`;
                 } else {
-                    // Si el cursor se aleja mucho, regresa suavemente a su posición gigante original
                     owl.style.transform = `translate(0px, 35px)`;
                 }
             });
 
-            // Si el mouse sale de la ventana, regresa a la posición central por defecto
             document.addEventListener('mouseleave', () => {
                 owl.style.transform = `translate(0px, 35px)`;
             });
