@@ -9,16 +9,14 @@
     <meta name="keywords" content="marketing digital lima, agencia de marketing peru, diseño web lima, edicion de video, branding corporativo, yapaseo">
     <meta name="robots" content="index, follow">
     
-    <!-- Corregido: cambiado class por rel -->
     <link rel="canonical" href="https://yapaseo.com">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Yapaseo | Agencia de Marketing Digital en Lima">
     <meta property="og:description" content="Escala tu facturación y domina el mercado con infraestructura digital de alta conversión.">
-    <meta property="og:image" content="yapaseo-rectangular.png">
+    <meta property="og:image" content="yapaseo-rectangular-blanco.png">
     <meta property="og:url" content="https://yapaseo.com">
 
-    <!-- Corregido: cambiado class por rel -->
     <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -94,6 +92,21 @@
         .logo-img { 
             height: 45px; 
             width: auto; 
+            display: block;
+        }
+
+        /* Estilos para el cambio dinámico de logos */
+        .logo-light {
+            display: none;
+        }
+        .logo-dark {
+            display: block;
+        }
+
+        nav.nav-scrolled .logo-dark {
+            display: none;
+        }
+        nav.nav-scrolled .logo-light {
             display: block;
         }
 
@@ -397,7 +410,9 @@
 
     <nav id="smart-nav">
         <a href="#inicio" class="logo-container">
-            <img src="yapaseo-rectangular.png" alt="Yapaseo Logo" class="logo-img">
+            <img src="yapaseo-rectangular-negro.png" alt="Yapaseo Logo Negro" class="logo-img logo-dark">
+            <img src="yapaseo-rectangular-blanco.png" alt="Yapaseo Logo Blanco" class="logo-img logo-light">
+            
             <span class="logo-divider">|</span>
             <span class="logo-tagline">Agencia de Marketing en Lima</span>
         </a>
