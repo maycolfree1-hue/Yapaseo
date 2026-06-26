@@ -117,8 +117,7 @@
             flex-grow: 1;
         }
 
-        .hero-content { 
-            max-width: 48%; 
+        .hero-content { max-width: 48%; 
             text-align: left; 
             padding-bottom: 80px; 
         }
@@ -218,26 +217,43 @@
         .section-tag { color: var(--accent); letter-spacing: 3px; font-weight: bold; text-align: center; display: block; margin-bottom: 10px; font-size: 14px; }
         .section-title { font-family: 'Bebas Neue', sans-serif; text-align: center; font-size: 55px; margin-bottom: 60px; letter-spacing: 1px; }
 
+        /* ESTILOS DE LA SECCIÓN SERVICIOS (FONDO BLANCO NUEVO) */
+        #servicios {
+            background-color: #ffffff;
+            color: #111827;
+        }
+        #servicios .section-title {
+            color: var(--primary); /* El título ahora usa el azul de tu marca */
+        }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .service-card {
-            background: var(--card-bg); padding: 40px; border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.4s ease;
-            text-align: center; display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .service-card:hover { border-color: var(--accent); transform: translateY(-10px); }
-        .service-card i { font-size: 45px; color: var(--accent); margin-bottom: 25px; }
-        .service-card h3 { font-size: 24px; margin-bottom: 20px; font-weight: 700; }
-        .service-card ul { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
-        .service-card ul li { color: var(--text-gray); margin-bottom: 10px; font-size: 14px; }
-        .service-card ul li i { font-size: 14px; margin-right: 10px; color: var(--accent); }
         
-        .btn-card {
-            background: rgba(255,255,255,0.05); color: white; padding: 12px;
-            border-radius: 50px; text-decoration: none; font-weight: bold;
-            transition: 0.3s; border: 1px solid rgba(255,255,255,0.1);
+        #servicios .service-card {
+            background: #f8fafc; /* Fondo gris/azul muy sutil y limpio */
+            padding: 40px; border-radius: 30px;
+            border: 1px solid #e2e8f0; transition: 0.4s ease;
+            text-align: center; display: flex; flex-direction: column; justify-content: space-between;
+            color: #1e293b;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        .service-card:hover .btn-card { background: var(--primary); border-color: var(--primary); }
+        #servicios .service-card:hover { 
+            border-color: var(--primary); 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 25px -5px rgba(15, 76, 190, 0.1);
+        }
+        #servicios .service-card i { font-size: 45px; color: var(--primary); margin-bottom: 25px; }
+        #servicios .service-card h3 { font-size: 24px; margin-bottom: 20px; font-weight: 700; color: #0f172a; }
+        #servicios .service-card ul { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
+        #servicios .service-card ul li { color: #475569; margin-bottom: 10px; font-size: 14px; font-weight: 500; }
+        #servicios .service-card ul li i { font-size: 14px; margin-right: 10px; color: var(--primary); }
+        
+        #servicios .btn-card {
+            background: #f1f5f9; color: #0f172a; padding: 12px;
+            border-radius: 50px; text-decoration: none; font-weight: bold;
+            transition: 0.3s; border: 1px solid #cbd5e1;
+        }
+        #servicios .service-card:hover .btn-card { background: var(--primary); border-color: var(--primary); color: white; }
 
+        /* PORTAFOLIO Y DEMÁS (MANTIENEN SU ESTILO ORIGINAL) */
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 300px); gap: 20px; max-width: 1200px; margin: 0 auto; }
         .bento-item { position: relative; border-radius: 30px; overflow: hidden; background: #1f2937; cursor: pointer; }
         .bento-item.tall { grid-row: span 2; } 
@@ -481,7 +497,8 @@
         </div>
     </section>
 
-    <section id="servicios" style="padding-top: 40px;">
+    <!-- SECCIÓN CON EL NUEVO ESTILO DE FONDO BLANCO -->
+    <section id="servicios" style="padding-top: 60px; padding-bottom: 60px;">
         <h2 class="section-title">Especialidades a tu medida</h2>
         <div class="services-grid">
             <div class="service-card">
@@ -497,7 +514,8 @@
                 <a href="https://wa.me/51971050584" class="btn-card">Consultar</a>
             </div>
 
-            <div class="service-card" style="border-color: var(--accent);">
+            <!-- Card Destacada adaptada estéticamente al fondo claro -->
+            <div class="service-card" style="border-color: var(--primary); background-color: #ffffff; box-shadow: 0 10px 30px rgba(15, 76, 190, 0.08);">
                 <div>
                     <i class="fas fa-laptop-code"></i>
                     <h3>Diseño y Desarrollo Web</h3>
@@ -507,7 +525,7 @@
                         <li><i class="fas fa-check"></i> Integración con WhatsApp</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/51971050584" class="btn-card" style="background: var(--primary);">El más solicitado</a>
+                <a href="https://wa.me/51971050584" class="btn-card" style="background: var(--primary); color: white; border-color: var(--primary);">El más solicitado</a>
             </div>
 
             <div class="service-card">
@@ -609,7 +627,6 @@
     <footer>
         <div class="footer-main">
             <div class="footer-brand">
-                <!-- Tu imagen solicitada para el pie de página -->
                 <img src="yapaseo-pie-de-pagina.png" alt="Yapaseo Logo Footer">
                 <p>Estructuramos activos estables y de alta conversión para escalar la facturación de tu negocio.</p>
             </div>
