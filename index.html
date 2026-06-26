@@ -13,7 +13,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Yapaseo | Agencia de Marketing Digital en Lima">
-    <meta property="og:description" content="Escala tu facturación y domina el mercado con infraestructura digital de alta conversión.">
+    <meta property="og:description" content="Escala tu facturación and domina el mercado con infraestructura digital de alta conversión.">
     <meta property="og:image" content="yapaseo-rectangular-blanco.png">
     <meta property="og:url" content="https://yapaseo.com">
 
@@ -217,43 +217,175 @@
         .section-tag { color: var(--accent); letter-spacing: 3px; font-weight: bold; text-align: center; display: block; margin-bottom: 10px; font-size: 14px; }
         .section-title { font-family: 'Bebas Neue', sans-serif; text-align: center; font-size: 55px; margin-bottom: 60px; letter-spacing: 1px; }
 
-        /* ESTILOS DE LA SECCIÓN SERVICIOS (FONDO BLANCO NUEVO) */
+        /* ESTILOS DE LA SECCIÓN SERVICIOS CON HOVER INTERACTIVO */
         #servicios {
             background-color: #ffffff;
             color: #111827;
+            padding: 80px 4%;
         }
+        
+        .services-header-box {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
         #servicios .section-title {
-            color: var(--primary); /* El título ahora usa el azul de tu marca */
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(32px, 4vw, 52px);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
         }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            max-width: 1140px; 
+            margin: 0 auto; 
+            align-items: stretch;
+        }
         
         #servicios .service-card {
-            background: #f8fafc; /* Fondo gris/azul muy sutil y limpio */
-            padding: 40px; border-radius: 30px;
-            border: 1px solid #e2e8f0; transition: 0.4s ease;
-            text-align: center; display: flex; flex-direction: column; justify-content: space-between;
-            color: #1e293b;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e5e7eb; 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            position: relative;
         }
-        #servicios .service-card:hover { 
-            border-color: var(--primary); 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 25px -5px rgba(15, 76, 190, 0.1);
-        }
-        #servicios .service-card i { font-size: 45px; color: var(--primary); margin-bottom: 25px; }
-        #servicios .service-card h3 { font-size: 24px; margin-bottom: 20px; font-weight: 700; color: #0f172a; }
-        #servicios .service-card ul { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
-        #servicios .service-card ul li { color: #475569; margin-bottom: 10px; font-size: 14px; font-weight: 500; }
-        #servicios .service-card ul li i { font-size: 14px; margin-right: 10px; color: var(--primary); }
-        
-        #servicios .btn-card {
-            background: #f1f5f9; color: #0f172a; padding: 12px;
-            border-radius: 50px; text-decoration: none; font-weight: bold;
-            transition: 0.3s; border: 1px solid #cbd5e1;
-        }
-        #servicios .service-card:hover .btn-card { background: var(--primary); border-color: var(--primary); color: white; }
 
-        /* PORTAFOLIO Y DEMÁS (MANTIENEN SU ESTILO ORIGINAL) */
+        .card-image-box {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            background: #f3f4f6;
+        }
+
+        .card-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Icono por defecto en negro y amarillo */
+        .card-icon-badge {
+            position: absolute;
+            bottom: -25px;
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--dark-hero);
+            color: var(--yellow-brand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .card-body-box {
+            padding: 40px 25px 30px 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        #servicios .service-card h3 { 
+            font-size: 22px; 
+            margin-bottom: 8px; 
+            font-weight: 800; 
+            color: #000000; 
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .card-intro-text {
+            font-size: 13.5px;
+            color: #4b5563;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        #servicios .service-card ul { 
+            list-style: none; 
+            text-align: left; 
+            margin-bottom: 30px; 
+            flex-grow: 1; 
+            border-top: 1px dashed #e5e7eb;
+            padding-top: 15px;
+        }
+
+        #servicios .service-card ul li { 
+            color: #1f2937; 
+            margin-bottom: 12px; 
+            font-size: 14px; 
+            font-weight: 600; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Checkmarks amarillos por defecto */
+        #servicios .service-card ul li i { 
+            font-size: 14px; 
+            color: var(--yellow-brand); 
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+        
+        /* Botón negro y amarillo por defecto */
+        #servicios .btn-card-premium {
+            background: #09090b; 
+            color: var(--yellow-brand); 
+            padding: 14px 24px;
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        /* EFECTOS AL PASAR EL MOUSE (HOVER AZUL) */
+        #servicios .service-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(15, 76, 190, 0.12);
+            border-color: var(--primary);
+        }
+
+        /* El icono cambia a fondo azul y flecha blanca al pasar el mouse */
+        #servicios .service-card:hover .card-icon-badge {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        /* Los checks cambian a azul al pasar el mouse */
+        #servicios .service-card:hover ul li i {
+            color: var(--primary);
+        }
+
+        /* El botón cambia por completo a azul premium al pasar el mouse */
+        #servicios .service-card:hover .btn-card-premium {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        /* PORTAFOLIO Y DEMÁS */
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 300px); gap: 20px; max-width: 1200px; margin: 0 auto; }
         .bento-item { position: relative; border-radius: 30px; overflow: hidden; background: #1f2937; cursor: pointer; }
         .bento-item.tall { grid-row: span 2; } 
@@ -497,54 +629,85 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CON EL NUEVO ESTILO DE FONDO BLANCO -->
-    <section id="servicios" style="padding-top: 60px; padding-bottom: 60px;">
-        <h2 class="section-title">Especialidades a tu medida</h2>
+    <section id="servicios">
+        <div class="services-header-box">
+            <h2 class="section-title">Nuestros Servicios</h2>
+        </div>
+
         <div class="services-grid">
             <div class="service-card">
-                <div>
-                    <i class="fas fa-palette"></i>
-                    <h3>Identidad de Marca</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Diseño de logotipo corporativo</li>
-                        <li><i class="fas fa-check"></i> Paleta de colores y tipografías</li>
-                        <li><i class="fas fa-check"></i> Manual de marca esencial</li>
-                    </ul>
+                <div class="card-image-box">
+                    <img src="card-branding.jpg" alt="Identidad de Marca">
+                    <div class="card-icon-badge">
+                        <i class="fas fa-palette"></i>
+                    </div>
                 </div>
-                <a href="https://wa.me/51971050584" class="btn-card">Consultar</a>
-            </div>
-
-            <!-- Card Destacada adaptada estéticamente al fondo claro -->
-            <div class="service-card" style="border-color: var(--primary); background-color: #ffffff; box-shadow: 0 10px 30px rgba(15, 76, 190, 0.08);">
-                <div>
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Diseño y Desarrollo Web</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Landing Pages de Alta Conversión</li>
-                        <li><i class="fas fa-check"></i> Estructura fluida y responsiva</li>
-                        <li><i class="fas fa-check"></i> Integración con WhatsApp</li>
-                    </ul>
+                <div class="card-body-box">
+                    <div>
+                        <h3>Identidad de Marca</h3>
+                        <p class="card-intro-text">Construimos marcas sólidas que transmiten confianza y te diferencian de la competencia.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Diseño de logotipo corporativo</li>
+                            <li><i class="fas fa-check"></i> Paleta de colores y tipografías</li>
+                            <li><i class="fas fa-check"></i> Manual de marca esencial</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51971050584" class="btn-card-premium">
+                        Ver Detalles <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <a href="https://wa.me/51971050584" class="btn-card" style="background: var(--primary); color: white; border-color: var(--primary);">El más solicitado</a>
             </div>
 
             <div class="service-card">
-                <div>
-                    <i class="fas fa-video"></i>
-                    <h3>Edición de Video</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Videos verticales de alto impacto</li>
-                        <li><i class="fas fa-check"></i> Subtítulos dinámicos y ganchos</li>
-                        <li><i class="fas fa-check"></i> Ritmo fluido y retención alta</li>
-                    </ul>
+                <div class="card-image-box">
+                    <img src="card-web.jpg" alt="Diseño y Desarrollo Web">
+                    <div class="card-icon-badge">
+                        <i class="fas fa-code"></i>
+                    </div>
                 </div>
-                <a href="https://wa.me/51971050584" class="btn-card">Consultar</a>
+                <div class="card-body-box">
+                    <div>
+                        <h3>Diseño y Desarrollo Web</h3>
+                        <p class="card-intro-text">Creamos páginas web que no solo se ven bien, sino que convierten visitantes en clientes.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Landing Pages de alta conversión</li>
+                            <li><i class="fas fa-check"></i> Diseño 100% responsive y rápido</li>
+                            <li><i class="fas fa-check"></i> Integración con WhatsApp</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51971050584" class="btn-card-premium">
+                        Ver Proyectos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-image-box">
+                    <img src="card-video.jpg" alt="Edición de Video">
+                    <div class="card-icon-badge">
+                        <i class="fas fa-video"></i>
+                    </div>
+                </div>
+                <div class="card-body-box">
+                    <div>
+                        <h3>Edición de Video</h3>
+                        <p class="card-intro-text">Videos que capturan la atención, cuentan tu historia y generan más interacción.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Videos verticales de alto impacto</li>
+                            <li><i class="fas fa-check"></i> Subtítulos dinámicos y ganchos</li>
+                            <li><i class="fas fa-check"></i> Ritmo fluido y retención alta</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51971050584" class="btn-card-premium">
+                        Ver Ejemplos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="portafolio" style="padding-top: 40px;">
-        <h2 class="section-title">Casos de Éxito</h2>
+        <h2 class="section-title" style="color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 55px; text-align: center; letter-spacing: 1px; text-transform: none;">Casos de Éxito</h2>
         <div class="bento-grid">
             <div class="bento-item tall"><img src="proyecto1.jpg" alt="InkaBrew"><div class="bento-overlay"><h3>InkaBrew</h3></div></div>
             <div class="bento-item"><img src="proyecto2.jpg" alt="VitalFit"><div class="bento-overlay"><h3>VitalFit</h3></div></div>
@@ -556,7 +719,7 @@
     </section>
 
     <section id="metodologia" style="padding-top: 40px;">
-        <h2 class="section-title">El camino en 3 pasos</h2>
+        <h2 class="section-title" style="color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 55px; text-align: center; letter-spacing: 1px; text-transform: none;">El camino en 3 pasos</h2>
         <div class="metodologia-container">
             <div class="metodologia-card">
                 <div class="metodologia-step">1</div>
@@ -590,7 +753,7 @@
     </section>
 
     <section id="testimonios" style="padding-top: 40px;">
-        <h2 class="section-title">Opiniones de clientes</h2>
+        <h2 class="section-title" style="color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 55px; text-align: center; letter-spacing: 1px; text-transform: none;">Opiniones de clientes</h2>
         <div class="testimonials-grid">
             <div class="testi-card"><p>"La estructura web y estrategia de contenido cambiaron la recepción de leads por completo."</p><h4>- Juan de InkaBrew</h4></div>
             <div class="testi-card"><p>"Un equipo profesional, veloz y muy enfocado en lograr objetivos reales."</p><h4>- Carlos de VitalFit</h4></div>
@@ -598,7 +761,7 @@
     </section>
 
     <section id="contacto" style="padding-top: 40px;">
-        <h2 class="section-title">¿Listo para empezar?</h2>
+        <h2 class="section-title" style="color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 55px; text-align: center; letter-spacing: 1px; text-transform: none;">¿Listo para empezar?</h2>
         <div class="contact-container">
             <div class="contact-info-side">
                 <h3 style="font-size: 32px; margin-bottom: 15px; font-weight: 800;">Hablemos hoy</h3>
@@ -623,7 +786,6 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA (FOOTER) -->
     <footer>
         <div class="footer-main">
             <div class="footer-brand">
