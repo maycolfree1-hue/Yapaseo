@@ -217,16 +217,16 @@
         .section-tag { color: var(--accent); letter-spacing: 3px; font-weight: bold; text-align: center; display: block; margin-bottom: 10px; font-size: 14px; }
         .section-title { font-family: 'Bebas Neue', sans-serif; text-align: center; font-size: 55px; margin-bottom: 60px; letter-spacing: 1px; }
 
-        /* ESTILOS DE LA SECCIÓN SERVICIOS CON HOVER INTERACTIVO */
+        /* ESTILOS DE LA SECCIÓN SERVICIOS SIN IMÁGENES, SOLO ICONOS FLOTANTES */
         #servicios {
             background-color: #ffffff;
             color: #111827;
-            padding: 80px 4%;
+            padding: 100px 4% 80px 4%;
         }
         
         .services-header-box {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 70px;
         }
 
         #servicios .section-title {
@@ -242,7 +242,7 @@
         .services-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
+            gap: 45px; 
             max-width: 1140px; 
             margin: 0 auto; 
             align-items: stretch;
@@ -255,45 +255,31 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex; 
             flex-direction: column; 
-            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
             position: relative;
         }
 
-        .card-image-box {
-            width: 100%;
-            height: 200px;
-            position: relative;
-            background: #f3f4f6;
-        }
-
-        .card-image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Icono por defecto en negro y amarillo */
+        /* DISEÑO DE ICONO FLOTANTE EXACTO SOBRE EL BORDE SUPERIOR */
         .card-icon-badge {
             position: absolute;
-            bottom: -25px;
-            left: 25px;
-            width: 50px;
-            height: 50px;
+            top: -28px;    /* Flota exactamente a la mitad de la línea de arriba */
+            left: 35px;    /* Alineación idéntica a la izquierda */
+            width: 56px;   
+            height: 56px;
             border-radius: 50%;
             background-color: var(--dark-hero);
             color: var(--yellow-brand);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 22px;
             z-index: 2;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
         }
 
         .card-body-box {
-            padding: 40px 25px 30px 25px;
+            padding: 45px 25px 30px 25px; 
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -334,15 +320,15 @@
             gap: 10px;
         }
 
-        /* Checkmarks amarillos por defecto */
+        /* Checkmarks dorados como la referencia */
         #servicios .service-card ul li i { 
             font-size: 14px; 
-            color: var(--yellow-brand); 
+            color: #FFD43B; 
             margin-bottom: 0;
             transition: color 0.3s ease;
         }
         
-        /* Botón negro y amarillo por defecto */
+        /* Botón de acción */
         #servicios .btn-card-premium {
             background: #09090b; 
             color: var(--yellow-brand); 
@@ -361,25 +347,22 @@
             border: none;
         }
 
-        /* EFECTOS AL PASAR EL MOUSE (HOVER AZUL) */
+        /* HOVER INTERACTIVO (EFECTO AZUL) */
         #servicios .service-card:hover { 
             transform: translateY(-8px); 
             box-shadow: 0 20px 40px rgba(15, 76, 190, 0.12);
             border-color: var(--primary);
         }
 
-        /* El icono cambia a fondo azul y flecha blanca al pasar el mouse */
         #servicios .service-card:hover .card-icon-badge {
             background-color: var(--primary);
             color: #ffffff;
         }
 
-        /* Los checks cambian a azul al pasar el mouse */
         #servicios .service-card:hover ul li i {
             color: var(--primary);
         }
 
-        /* El botón cambia por completo a azul premium al pasar el mouse */
         #servicios .service-card:hover .btn-card-premium {
             background: var(--primary);
             color: #ffffff;
@@ -576,6 +559,8 @@
             .footer-brand { align-items: center; }
             .footer-socials { justify-content: center; }
             .footer-bottom { justify-content: center; text-align: center; }
+            #servicios { padding: 80px 4% 60px 4%; }
+            .services-grid { gap: 60px; }
         }
     </style>
 </head>
@@ -635,12 +620,11 @@
         </div>
 
         <div class="services-grid">
+            
+            <!-- TARJETA 1 -->
             <div class="service-card">
-                <div class="card-image-box">
-                    <img src="card-branding.jpg" alt="Identidad de Marca">
-                    <div class="card-icon-badge">
-                        <i class="fas fa-palette"></i>
-                    </div>
+                <div class="card-icon-badge">
+                    <i class="fas fa-palette"></i>
                 </div>
                 <div class="card-body-box">
                     <div>
@@ -658,12 +642,10 @@
                 </div>
             </div>
 
+            <!-- TARJETA 2 -->
             <div class="service-card">
-                <div class="card-image-box">
-                    <img src="card-web.jpg" alt="Diseño y Desarrollo Web">
-                    <div class="card-icon-badge">
-                        <i class="fas fa-code"></i>
-                    </div>
+                <div class="card-icon-badge">
+                    <i class="fas fa-code"></i>
                 </div>
                 <div class="card-body-box">
                     <div>
@@ -681,12 +663,10 @@
                 </div>
             </div>
 
+            <!-- TARJETA 3 -->
             <div class="service-card">
-                <div class="card-image-box">
-                    <img src="card-video.jpg" alt="Edición de Video">
-                    <div class="card-icon-badge">
-                        <i class="fas fa-video"></i>
-                    </div>
+                <div class="card-icon-badge">
+                    <i class="fas fa-video"></i>
                 </div>
                 <div class="card-body-box">
                     <div>
@@ -703,6 +683,7 @@
                     </a>
                 </div>
             </div>
+            
         </div>
     </section>
 
@@ -712,7 +693,7 @@
             <div class="bento-item tall"><img src="proyecto1.jpg" alt="InkaBrew"><div class="bento-overlay"><h3>InkaBrew</h3></div></div>
             <div class="bento-item"><img src="proyecto2.jpg" alt="VitalFit"><div class="bento-overlay"><h3>VitalFit</h3></div></div>
             <div class="bento-item"><img src="proyecto3.jpg" alt="GreenRoots"><div class="bento-overlay"><h3>GreenRoots</h3></div></div>
-            <div class="bento-item"><img src="proyecto4.jpg" alt="Dental Care"><div class="bento-overlay"><h3>Dental Care</h3></div></div>
+            <div class="bento-item"><img src="proyecto4.jpg" alt="Emily Deco Hogar"><div class="bento-overlay"><h3>Emily Deco Hogar</h3></div></div>
             <div class="bento-item tall"><img src="proyecto5.jpg" alt="UrbanStyle"><div class="bento-overlay"><h3>UrbanStyle</h3></div></div>
             <div class="bento-item"><img src="proyecto6.jpg" alt="CasaMar"><div class="bento-overlay"><h3>CasaMar</h3></div></div>
         </div>
