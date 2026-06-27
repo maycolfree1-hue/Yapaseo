@@ -98,7 +98,7 @@
         /* HERO - SECCIÓN ESTILO MONKEY FULL-SCREEN */
         .hero {
             min-height: 100vh; 
-            min-height: 100dvh; /* Ocupa el alto dinámico real en móviles */
+            min-height: 100dvh; 
             display: flex; 
             flex-direction: column;
             justify-content: space-between;
@@ -161,7 +161,7 @@
             padding: 0;
         }
         
-        /* CONTENEDOR DEL BÚHO GIGANTE */
+        /* CONTENEDOR DEL BÚHO GIGANTE (ESCRITORIO) */
         .hero-image-wrapper {
             position: absolute;
             right: -2%; 
@@ -185,7 +185,7 @@
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 96%);
         }
 
-        /* FEATURES BAR ULTRA ELEGANTE, LIMPIA Y SIN BLOQUE NEGRO */
+        /* FEATURES BAR EN ESCRITORIO */
         .features-bar {
             display: flex;
             justify-content: center;
@@ -488,7 +488,9 @@
             gap: 15px; font-size: 13px; color: var(--text-gray);
         }
 
-        /* RESPONSIVE & MOBILE DESIGN (ESTILO MONKEY) */
+        /* ========================================================
+           OPTIMIZACIÓN RADICAL PARA CELULARES (ESTILO MONKEY REAL)
+           ======================================================== */
         @media (max-width: 992px) {
             nav { padding: 15px 3%; }
             .logo-img { height: 38px; }
@@ -502,22 +504,24 @@
             
             /* Ajuste dinámico de pantalla completa en celular */
             .hero { 
-                padding: 100px 4% 0 4%; 
+                padding: 95px 4% 0 4%; 
                 height: 100vh;
                 height: 100dvh; 
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: flex-start;
             }
             
             .hero-container { 
                 flex-direction: column; 
                 text-align: center; 
-                gap: 10px; 
+                gap: 0px; 
                 justify-content: flex-start;
                 flex-grow: 1;
+                position: relative;
             }
             
+            /* PASO 2: Palabras más grandes en Celular */
             .hero-content { 
                 max-width: 100%; 
                 text-align: center; 
@@ -525,62 +529,49 @@
                 flex-direction: column; 
                 align-items: center; 
                 padding-bottom: 0px; 
-                margin-top: 20px;
+                margin-top: 25px;
+                z-index: 2;
             }
             
-            .hero-content h1 { align-items: center; }
+            .hero-content h1 { 
+                align-items: center; 
+                font-size: clamp(32px, 5.5vw, 42px); /* Agrandado */
+            }
+
+            .hero-content h1 .highlight-black {
+                font-size: clamp(95px, 16vw, 140px); /* Título central gigante e impactante */
+                margin: 10px 0 2px 0;
+            }
+
+            .hero-content h1 .sub-text {
+                font-size: clamp(30px, 5vw, 40px); /* Subtexto agrandado */
+            }
             
-            /* El búho se asienta elegantemente en el fondo */
+            /* PASO 1: El Búho toma el centro de la pantalla y es más grande */
             .hero-image-wrapper { 
                 position: absolute; 
-                width: 75%; 
-                max-width: 320px; 
-                bottom: 60px; 
+                width: 95%; /* Se agranda el contenedor para que luzca imponente */
+                max-width: 420px; 
+                bottom: 0px; /* Se asienta abajo cubriendo el medio */
                 right: auto;
                 left: 50%;
                 transform: translateX(-50%);
                 z-index: 1;
+                display: flex;
+                align-items: flex-end;
             }
             
             .hero-image-wrapper img { 
                 width: 100%; 
-                transform: translateY(0) !important; 
+                transform: translateY(15px) !important; 
                 -webkit-mask-image: none; 
                 mask-image: none; 
             }
             
-            /* Textos inferiores minimalistas flotantes (Sin caja negra) */
+            /* PASO 3: DESAPARECE COMPLETAMENTE LA BARRA DE TEXTOS EN CELULAR */
             .features-bar { 
-                display: flex;
-                flex-direction: row; 
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 10px; 
-                padding: 15px 10px; 
-                margin-bottom: 12px;
-                z-index: 5;
-                background: transparent;
-                border: none;
+                display: none !important; 
             }
-            
-            .feature-item {
-                font-size: 11px;
-                gap: 5px;
-                background: rgba(0, 0, 0, 0.05); /* Sutil pastilla hiper-limpia */
-                padding: 6px 12px;
-                border-radius: 20px;
-            }
-            
-            .icon-gold {
-                font-size: 12px;
-                width: auto;
-                height: auto;
-                background: transparent;
-                border: none;
-                padding: 0;
-            }
-            
-            .features-divider { display: none; }
             
             .about-container { flex-direction: column; }
             .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
@@ -627,6 +618,7 @@
             </div>
         </div>
 
+        <!-- BARRA FLOTANTE (Solo visible en Computadoras, oculta al 100% en celular) -->
         <div class="features-bar">
             <div class="feature-item">
                 <i class="fas fa-search icon-gold"></i>
@@ -651,6 +643,7 @@
         </div>
 
         <div class="services-grid">
+            <!-- TARJETA 1 -->
             <div class="service-card">
                 <div class="card-icon-badge">
                     <i class="fas fa-palette"></i>
@@ -671,6 +664,7 @@
                 </div>
             </div>
 
+            <!-- TARJETA 2 -->
             <div class="service-card">
                 <div class="card-icon-badge">
                     <i class="fas fa-code"></i>
@@ -691,6 +685,7 @@
                 </div>
             </div>
 
+            <!-- TARJETA 3 -->
             <div class="service-card">
                 <div class="card-icon-badge">
                     <i class="fas fa-video"></i>
