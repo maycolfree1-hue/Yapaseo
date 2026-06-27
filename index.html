@@ -21,7 +21,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -183,34 +183,75 @@
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 96%);
         }
 
-        /* CUADRO NEGRO */
+        /* NUEVA FEATURES BAR RE DISEÑADA Y ELEGANTE */
         .features-bar {
-            background-color: #0c0f14;
+            background: linear-gradient(135deg, rgba(10, 13, 19, 0.96) 0%, rgba(18, 24, 37, 0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 26px 40px;
+            padding: 24px 50px;
             border-radius: 24px 24px 0 0;
             max-width: 1140px;
             width: 100%;
             margin: 0 auto;
             position: relative;
             z-index: 5; 
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(255, 223, 57, 0.15);
             border-bottom: none;
+            box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.25);
         }
 
         .feature-item {
-            color: #fff;
+            color: #ffffff;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 16px;
-            font-weight: 700;
+            gap: 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-2px);
         }
 
-        .icon-gold { color: var(--yellow-brand); font-size: 20px; }
-        .features-divider { width: 1px; height: 25px; background-color: rgba(255,255,255,0.12); }
+        .feature-item span {
+            background: linear-gradient(to right, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .icon-gold { 
+            color: var(--yellow-brand); 
+            font-size: 20px; 
+            background: rgba(255, 223, 57, 0.1);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 223, 57, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover .icon-gold {
+            background: var(--yellow-brand);
+            color: #000000;
+            border-color: var(--yellow-brand);
+            box-shadow: 0 0 15px rgba(255, 223, 57, 0.4);
+        }
+
+        .features-divider { 
+            width: 1px; 
+            height: 35px; 
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.15), transparent); 
+        }
 
         /* SECCIONES COMPLEMENTARIAS */
         section { padding: 100px 8%; position: relative; }
@@ -372,7 +413,7 @@
         .bento-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            grid-template-rows: repeat(2, 400px); /* Modificado: de 300px a 400px (Más grande) */
+            grid-template-rows: repeat(2, 400px); 
             gap: 24px; 
             max-width: 1200px; 
             margin: 0 auto; 
@@ -381,7 +422,7 @@
             position: relative; 
             border-radius: 30px; 
             overflow: hidden; 
-            background: #0b0f17; /* Modificado: Fondo base más oscuro */
+            background: #0b0f17; 
             cursor: pointer; 
         }
         .bento-item.tall { grid-row: span 2; } 
@@ -390,12 +431,11 @@
             height: 100%; 
             object-fit: cover; 
             transition: 0.6s; 
-            filter: brightness(0.9); /* Modificado: Ligero filtro oscuro por defecto */
+            filter: brightness(0.9); 
         }
         .bento-item:hover img { transform: scale(1.06); filter: brightness(1); }
         .bento-overlay {
             position: absolute; bottom: 0; left: 0; width: 100%; height: 75%;
-            /* Modificado: Degradado con negro absoluto y mayor cobertura (Más oscuro) */
             background: linear-gradient(to top, rgba(0,0,0,1) 5%, rgba(0,0,0,0.7) 40%, transparent 100%);
             display: flex; flex-direction: column; justify-content: flex-end; padding: 35px;
         }
@@ -570,11 +610,43 @@
             .hero-image-wrapper { position: relative; width: 85%; max-width: 440px; margin: 0 auto; bottom: 0; right: 0; }
             .hero-image-wrapper img { width: 100%; transform: translateY(25px) !important; -webkit-mask-image: none; mask-image: none; }
             
-            .features-bar { flex-direction: column; gap: 20px; padding: 25px; border-radius: 20px; margin-top: 20px; }
+            /* AJUSTE PREMIUM CELULAR PARA LA FEATURES BAR */
+            .features-bar { 
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px; 
+                padding: 20px; 
+                border-radius: 24px 24px 0 0; 
+                margin-top: 30px;
+                background: rgba(10, 13, 19, 0.98);
+                border: 1px solid rgba(255, 223, 57, 0.1);
+                border-bottom: none;
+            }
+            .feature-item {
+                justify-content: flex-start;
+                font-size: 12px;
+                gap: 10px;
+            }
+            /* El tercer elemento toma el ancho completo de la cuadrícula móvil */
+            .feature-item:nth-child(5) {
+                grid-column: span 2;
+                justify-content: center;
+                border-top: 1px dashed rgba(255,255,255,0.08);
+                padding-top: 12px;
+                margin-top: 4px;
+            }
+            .icon-gold {
+                width: 34px;
+                height: 34px;
+                font-size: 15px;
+                padding: 0;
+                border-radius: 8px;
+            }
             .features-divider { display: none; }
+            
             .about-container { flex-direction: column; }
             .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-            .bento-item.tall { grid-row: span 1; height: 380px; } /* Modificado: de 350px a 380px (Más grande) */
+            .bento-item.tall { grid-row: span 1; height: 380px; } 
             .contact-container { grid-template-columns: 1fr; padding: 30px 20px; }
             .footer-main { grid-template-columns: 1fr; text-align: center; justify-items: center; }
             .footer-brand { align-items: center; }
@@ -617,6 +689,7 @@
             </div>
         </div>
 
+        <!-- BARRA MEJORADA Y OPTIMIZADA -->
         <div class="features-bar">
             <div class="feature-item">
                 <i class="fas fa-search icon-gold"></i>
@@ -840,7 +913,6 @@
     </footer>
 
     <script>
-        // SCRIPT 1: Header inteligente
         let lastScrollTop = 0;
         const nav = document.getElementById('smart-nav');
         window.addEventListener('scroll', function() {
@@ -852,7 +924,6 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        // SCRIPT 2: Parallax Invertido Inteligente
         const owl = document.getElementById('interactive-owl');
         
         if (window.innerWidth > 900) {
