@@ -146,19 +146,20 @@
         #metodologia .section-title { color: #000000; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(32px, 4.2vw, 52px); margin-bottom: 15px; letter-spacing: -0.8px; text-transform: uppercase; position: relative; z-index: 2; text-align: center; }
         .metodologia-subtitle { text-align: center; color: #4b5563; font-size: 16px; max-width: 600px; margin: 0 auto 80px auto; font-weight: 500; position: relative; z-index: 2; }
         .timeline-wrapper { position: relative; max-width: 1140px; margin: 0 auto; z-index: 2; padding: 20px 0; }
-        .timeline-progress-bar { position: absolute; top: 45px; left: 10%; right: 10%; height: 4px; background: var(--primary); z-index: 1; border-radius: 2px; }
+        .timeline-progress-bar { position: absolute; top: 45px; left: 10%; right: 10%; height: 4px; background: var(--yellow-brand); z-index: 1; border-radius: 2px; }
         .timeline-container { display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 2; gap: 30px; }
         .timeline-node { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .node-number { width: 54px; height: 54px; border-radius: 50%; background: #ffffff; border: 3px solid var(--primary); color: var(--primary); font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; }
-        .node-number::after { content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--primary); opacity: 0.4; animation: nodePulse 2s infinite ease-out; }
+        .node-number { width: 54px; height: 54px; border-radius: 50%; background: #ffffff; border: 3px solid var(--yellow-brand); color: var(--dark-hero); font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; }
+        .node-number::after { content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--yellow-brand); opacity: 0.4; animation: nodePulse 2s infinite ease-out; }
         @keyframes nodePulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.3); opacity: 0; } }
         .node-card { background: #ffffff; padding: 35px 25px; border-radius: 20px; border: 1px solid #e5e7eb; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); width: 100%; }
-        .node-card i { font-size: 32px; color: var(--primary); margin-bottom: 18px; display: inline-block; transition: transform 0.3s ease; }
+        /* Icono decorativo en amarillo */
+        .node-card i { font-size: 32px; color: var(--yellow-brand); margin-bottom: 18px; display: inline-block; transition: transform 0.3s ease; }
         .node-card h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: #000000; margin-bottom: 12px; }
         .node-card p { font-size: 14px; color: #4b5563; line-height: 1.5; }
-        .timeline-node:hover .node-number { background: var(--primary); color: #ffffff; transform: scale(1.05); }
-        .timeline-node:hover .node-card { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(15, 76, 190, 0.08); }
-        .timeline-node:hover .node-card i { transform: scale(1.1) rotate(5deg); color: var(--yellow-brand); }
+        .timeline-node:hover .node-number { background: var(--yellow-brand); color: var(--dark-hero); transform: scale(1.05); }
+        .timeline-node:hover .node-card { transform: translateY(-8px); border-color: var(--yellow-brand); box-shadow: 0 20px 40px rgba(255, 223, 57, 0.15); }
+        .timeline-node:hover .node-card i { transform: scale(1.1) rotate(5deg); color: var(--primary); }
 
         /* TESTIMONIOS */
         #testimonios {
@@ -251,12 +252,11 @@
         .testi-logo-img {
             width: 70px;
             height: 70px;
-            /* Cambiado a formato cuadrado */
             border-radius: 12px; 
             background-color: #ffffff;
             border: 1px solid #f3f4f6;
-            object-fit: contain; /* Asegura que el logo se vea completo */
-            padding: 5px; /* Pequeño padding interno */
+            object-fit: contain; 
+            padding: 5px; 
             margin: 0 auto 15px auto;
             display: block;
             box-shadow: 0 4px 6px rgba(0,0,0,0.04);
@@ -327,7 +327,7 @@
             .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
             .bento-item.tall { grid-row: span 1; height: 380px; } 
             
-            .timeline-progress-bar { left: 27px; top: 10px; bottom: 10px; width: 4px; height: auto; background: var(--primary); }
+            .timeline-progress-bar { left: 27px; top: 10px; bottom: 10px; width: 4px; height: auto; background: var(--yellow-brand); }
             .timeline-container { flex-direction: column; gap: 40px; }
             .timeline-node { flex-direction: row; align-items: flex-start; text-align: left; width: 100%; gap: 20px; }
             .node-number { margin-bottom: 0; flex-shrink: 0; z-index: 3; }
@@ -505,9 +505,8 @@
                     <p>El diseño y desarrollo de nuestra web fue impecable. Lograron transmitir la calidad de nuestros 20 años de experiencia en cortinas y decoración. Ahora recibimos prospectos calificados constantemente.</p>
                 </div>
                 <div class="testi-author-area">
-                    <img src="logo-emily.png" alt="Logo Emily Deco Hogar" class="testi-logo-img">
+                    <img src="Emily-deco-hogar.png" alt="Logo Emily Deco Hogar" class="testi-logo-img">
                     <h4>Emily Deco Hogar</h4>
-                    <span class="author-name">María Torres</span>
                     <span class="author-role">Gerente General</span>
                 </div>
             </div>
@@ -520,7 +519,7 @@
                     <p>Agradecemos el gran trabajo en la creación de nuestra identidad visual y ecosistema digital. Es exactamente el salto de calidad y el soporte tecnológico que buscábamos para posicionarnos en el mercado.</p>
                 </div>
                 <div class="testi-author-area">
-                    <img src="logo-inkabrew.png" alt="Logo InkaBrew" class="testi-logo-img">
+                    <img src="Inka-brew.png" alt="Logo InkaBrew" class="testi-logo-img">
                     <h4>InkaBrew</h4>
                     <span class="author-name">Juan Pérez</span>
                     <span class="author-role">Fundador</span>
@@ -535,7 +534,7 @@
                     <p>Con su servicio de edición de video, nuestra retención de audiencia se disparó. Capturaron perfectamente la esencia de nuestra marca y convirtieron nuestras redes sociales en un verdadero motor de ventas.</p>
                 </div>
                 <div class="testi-author-area">
-                    <img src="logo-vitalfit.png" alt="Logo VitalFit" class="testi-logo-img">
+                    <img src="Vital-fit.png" alt="Logo VitalFit" class="testi-logo-img">
                     <h4>VitalFit</h4>
                     <span class="author-name">Carlos Mendoza</span>
                     <span class="author-role">Jefe de Marketing</span>
