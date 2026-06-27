@@ -504,7 +504,7 @@
             
             /* Ajuste dinámico de pantalla completa en celular */
             .hero { 
-                padding: 95px 4% 0 4%; 
+                padding: 105px 4% 0 4%; 
                 height: 100vh;
                 height: 100dvh; 
                 display: flex;
@@ -521,7 +521,7 @@
                 position: relative;
             }
             
-            /* PASO 2: Palabras más grandes en Celular */
+            /* Palabras más grandes en Celular */
             .hero-content { 
                 max-width: 100%; 
                 text-align: center; 
@@ -535,24 +535,24 @@
             
             .hero-content h1 { 
                 align-items: center; 
-                font-size: clamp(32px, 5.5vw, 42px); /* Agrandado */
+                font-size: clamp(32px, 5.5vw, 42px); 
             }
 
             .hero-content h1 .highlight-black {
-                font-size: clamp(95px, 16vw, 140px); /* Título central gigante e impactante */
+                font-size: clamp(95px, 16vw, 140px); 
                 margin: 10px 0 2px 0;
             }
 
             .hero-content h1 .sub-text {
-                font-size: clamp(30px, 5vw, 40px); /* Subtexto agrandado */
+                font-size: clamp(30px, 5vw, 40px); 
             }
             
-            /* PASO 1: El Búho toma el centro de la pantalla y es más grande */
+            /* NUEVO: El Búho súper gigante hasta la línea verde */
             .hero-image-wrapper { 
                 position: absolute; 
-                width: 95%; /* Se agranda el contenedor para que luzca imponente */
-                max-width: 420px; 
-                bottom: 0px; /* Se asienta abajo cubriendo el medio */
+                width: 135%; /* Incrementado drásticamente para darle un tamaño masivo */
+                max-width: 520px; 
+                bottom: -5px; 
                 right: auto;
                 left: 50%;
                 transform: translateX(-50%);
@@ -563,12 +563,12 @@
             
             .hero-image-wrapper img { 
                 width: 100%; 
-                transform: translateY(15px) !important; 
+                transform: translateY(20px) !important; /* Ajuste inferior perfecto */
                 -webkit-mask-image: none; 
                 mask-image: none; 
             }
             
-            /* PASO 3: DESAPARECE COMPLETAMENTE LA BARRA DE TEXTOS EN CELULAR */
+            /* DESAPARECE COMPLETAMENTE LA BARRA DE TEXTOS EN CELULAR */
             .features-bar { 
                 display: none !important; 
             }
