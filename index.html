@@ -520,7 +520,6 @@
                 position: relative;
             }
             
-            /* Textos aún más grandes y agresivos en celulares */
             .hero-content { 
                 max-width: 100%; 
                 text-align: center; 
@@ -534,30 +533,30 @@
             
             .hero-content h1 { 
                 align-items: center; 
-                font-size: clamp(38px, 7vw, 55px); /* ENCUENTRA más grande */
+                font-size: clamp(38px, 7vw, 55px); 
             }
 
             .hero-content h1 .highlight-black {
-                font-size: clamp(110px, 22vw, 170px); /* CLIENTES masivo e imponente */
+                font-size: clamp(110px, 22vw, 170px); 
                 margin: 6px 0 2px 0;
             }
 
             .hero-content h1 .sub-text {
-                font-size: clamp(35px, 6.5vw, 48px); /* PARA TU NEGOCIO más grande */
+                font-size: clamp(35px, 6.5vw, 48px); 
             }
             
-            /* BÚHO GIGANTE Y PERFECTAMENTE CENTRADO */
+            /* BÚHO EN CELULARES - DESPLAZADO UN POCO A LA IZQUIERDA PARA CONTRARRESTAR LA LUPA */
             .hero-image-wrapper { 
                 position: absolute; 
-                width: 240%; /* Búho expandido para máximo impacto visual */
+                width: 240%; 
                 max-width: 850px; 
                 bottom: -20px; 
                 right: auto;
                 left: 50%;
-                transform: translateX(-50%); /* Centrado matemático perfecto horizontal */
+                transform: translateX(-54%); /* Cambiado de -50% a -54% para balancearlo hacia la izquierda */
                 z-index: 1;
                 display: flex;
-                justify-content: center; /* Asegura el centrado interno de la imagen */
+                justify-content: center; 
                 align-items: flex-end;
             }
             
