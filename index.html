@@ -502,7 +502,6 @@
         @media (max-width: 900px) {
             .nav-links { display: none; }
             
-            /* Ajuste dinámico de pantalla completa en celular */
             .hero { 
                 padding: 105px 4% 0 4%; 
                 height: 100vh;
@@ -521,7 +520,7 @@
                 position: relative;
             }
             
-            /* Palabras más grandes en Celular */
+            /* Textos aún más grandes y agresivos en celulares */
             .hero-content { 
                 max-width: 100%; 
                 text-align: center; 
@@ -529,46 +528,46 @@
                 flex-direction: column; 
                 align-items: center; 
                 padding-bottom: 0px; 
-                margin-top: 25px;
+                margin-top: 35px;
                 z-index: 2;
             }
             
             .hero-content h1 { 
                 align-items: center; 
-                font-size: clamp(32px, 5.5vw, 42px); 
+                font-size: clamp(38px, 7vw, 55px); /* ENCUENTRA más grande */
             }
 
             .hero-content h1 .highlight-black {
-                font-size: clamp(95px, 16vw, 140px); 
-                margin: 10px 0 2px 0;
+                font-size: clamp(110px, 22vw, 170px); /* CLIENTES masivo e imponente */
+                margin: 6px 0 2px 0;
             }
 
             .hero-content h1 .sub-text {
-                font-size: clamp(30px, 5vw, 40px); 
+                font-size: clamp(35px, 6.5vw, 48px); /* PARA TU NEGOCIO más grande */
             }
             
-            /* EL BÚHO MÁS GRANDE: Subida e impacto extremo */
+            /* BÚHO GIGANTE Y PERFECTAMENTE CENTRADO */
             .hero-image-wrapper { 
                 position: absolute; 
-                width: 210%; /* Búho gigante e imponente en pantallas móviles */
-                max-width: 750px; 
-                bottom: -35px; /* Anclado al borde de forma óptima */
+                width: 240%; /* Búho expandido para máximo impacto visual */
+                max-width: 850px; 
+                bottom: -20px; 
                 right: auto;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translateX(-50%); /* Centrado matemático perfecto horizontal */
                 z-index: 1;
                 display: flex;
+                justify-content: center; /* Asegura el centrado interno de la imagen */
                 align-items: flex-end;
             }
             
             .hero-image-wrapper img { 
                 width: 100%; 
-                transform: translateY(10px) !important; 
+                transform: translateY(0px) !important; 
                 -webkit-mask-image: none; 
                 mask-image: none; 
             }
             
-            /* DESAPARECE COMPLETAMENTE LA BARRA DE TEXTOS EN CELULAR */
             .features-bar { 
                 display: none !important; 
             }
@@ -618,7 +617,6 @@
             </div>
         </div>
 
-        <!-- BARRA FLOTANTE (Solo visible en Computadoras, oculta al 100% en celular) -->
         <div class="features-bar">
             <div class="feature-item">
                 <i class="fas fa-search icon-gold"></i>
@@ -643,7 +641,6 @@
         </div>
 
         <div class="services-grid">
-            <!-- TARJETA 1 -->
             <div class="service-card">
                 <div class="card-icon-badge">
                     <i class="fas fa-palette"></i>
@@ -664,7 +661,6 @@
                 </div>
             </div>
 
-            <!-- TARJETA 2 -->
             <div class="service-card">
                 <div class="card-icon-badge">
                     <i class="fas fa-code"></i>
@@ -685,7 +681,6 @@
                 </div>
             </div>
 
-            <!-- TARJETA 3 -->
             <div class="service-card">
                 <div class="card-icon-badge">
                     <i class="fas fa-video"></i>
