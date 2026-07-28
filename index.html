@@ -62,7 +62,7 @@
         nav.nav-scrolled .nav-links a { color: #ffffff; }
         nav.nav-scrolled .nav-links a:hover { color: var(--accent); }
 
-        .logo-container { display: flex; align-items: center; text-decoration: none; color: var(--dark-hero); }
+        .logo-container { display: flex; align-items: center; text-decoration: none; color: var(--dark-hero); cursor: pointer; }
         .logo-img { height: 45px; width: auto; display: block; }
         .logo-light { display: none; }
         .logo-dark { display: block; }
@@ -74,7 +74,7 @@
         nav.nav-scrolled .logo-container:hover .logo-tagline { color: var(--accent); }
 
         .nav-links { display: flex; gap: 18px; align-items: center; margin-left: auto; margin-right: 30px; }
-        .nav-links a { color: rgba(0,0,0,0.8); text-decoration: none; font-size: 14px; font-weight: 700; transition: color 0.4s ease; letter-spacing: 0.2px; }
+        .nav-links a { color: rgba(0,0,0,0.8); text-decoration: none; font-size: 14px; font-weight: 700; transition: color 0.4s ease; letter-spacing: 0.2px; cursor: pointer; }
         .nav-links a:hover { color: var(--primary); }
 
         .btn-nav-ws {
@@ -354,20 +354,20 @@
 <body>
 
     <nav id="smart-nav">
-        <a href="#inicio" class="logo-container">
+        <div class="logo-container" data-target="inicio">
             <img src="yapaseo-rectangular-negro.png" alt="Yapaseo Logo Negro" class="logo-img logo-dark">
             <img src="yapaseo-rectangular-blanco.png" alt="Yapaseo Logo Blanco" class="logo-img logo-light">
             <span class="logo-divider">|</span>
             <span class="logo-tagline">Agencia de Marketing en Lima</span>
-        </a>
-        <div class="nav-links">
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#portafolio">Portafolio</a>
-            <a href="#metodologia">Metodología</a>
-            <a href="#testimonios">Testimonios</a>
         </div>
-        <a href="https://wa.me/51971050584" class="btn-nav-ws">
+        <div class="nav-links">
+            <a data-target="inicio">Inicio</a>
+            <a data-target="servicios">Servicios</a>
+            <a data-target="portafolio">Portafolio</a>
+            <a data-target="metodologia">Metodología</a>
+            <a data-target="testimonios">Testimonios</a>
+        </div>
+        <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </nav>
@@ -556,7 +556,7 @@
             <div class="contact-info-side">
                 <h3 style="font-size: 32px; margin-bottom: 15px; font-weight: 800;">Hablemos hoy</h3>
                 <p style="color: var(--text-gray); margin-bottom: 30px;">Puedes agendar directo por WhatsApp para una asesoría veloz.</p>
-                <a href="https://wa.me/51971050584" class="btn-nav-ws" style="justify-content: center; padding: 15px;">
+                <a href="https://wa.me/51971050584" class="btn-nav-ws" style="justify-content: center; padding: 15px;" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-whatsapp"></i> HABLAR POR WHATSAPP
                 </a>
             </div>
@@ -621,6 +621,7 @@
     </footer>
 
     <script>
+        // Control de navegación inteligente al hacer scroll
         let lastScrollTop = 0;
         const nav = document.getElementById('smart-nav');
         window.addEventListener('scroll', function() {
@@ -632,6 +633,19 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
+        // Interacción con el logo y links para scroll suave sin alterar la URL
+        document.querySelectorAll('[data-target]').forEach(element => {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Animación interactiva del búho
         const owl = document.getElementById('interactive-owl');
         
         if (window.innerWidth > 900) {
