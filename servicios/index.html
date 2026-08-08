@@ -14,14 +14,14 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Servicios | Yapaseo - Agencia de Marketing Digital en Lima">
     <meta property="og:description" content="Identidad de marca, diseño web de alta conversión y edición de video profesional con Yapaseo.">
-    <meta property="og:image" content="../assets/img/yapaseo-rectangular-blanco.png">
+    <meta property="og:image" content="../assets/img/yapaseo-rectangular-blanco.webp">
     <meta property="og:url" content="https://yapaseo.com/servicios/">
 
     <link rel="icon" type="image/png" href="../assets/img/Favicon-yapaseo.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600;700;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
@@ -29,8 +29,8 @@
 
     <nav id="smart-nav">
         <a href="../" class="logo-container" data-target="inicio">
-            <img src="../assets/img/yapaseo-rectangular-negro.png" alt="Yapaseo Logo Negro" class="logo-img logo-dark">
-            <img src="../assets/img/yapaseo-rectangular-blanco.png" alt="Yapaseo Logo Blanco" class="logo-img logo-light">
+            <img src="../assets/img/yapaseo-rectangular-negro.webp" alt="Yapaseo Logo Negro" class="logo-img logo-dark">
+            <img src="../assets/img/yapaseo-rectangular-blanco.webp" alt="Yapaseo Logo Blanco" class="logo-img logo-light">
             <span class="logo-divider">|</span>
             <span class="logo-tagline">Agencia de Marketing en Lima</span>
         </a>
@@ -41,10 +41,24 @@
             <a href="../nosotros/">Nosotros</a>
             <a href="../articulos/">Artículos</a>
         </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
         <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+<a href="../" data-target="inicio">Inicio</a>
+            <a href="../servicios/" data-target="servicios">Servicios</a>
+            <a href="../#portafolio" data-target="portafolio">Portafolio</a>
+            <a href="../nosotros/">Nosotros</a>
+            <a href="../articulos/">Artículos</a>
+        <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
 
 <section id="servicios">
         <div class="services-header-box">
@@ -107,14 +121,13 @@
             <p style="color:#4b5563; max-width:520px; margin:12px auto 0 auto; font-size:15px;">Proyectos reales, publicados y funcionando para nuestros clientes.</p>
         </div>
         <div class="web-projects-grid">
-
             <div class="web-project-card">
                 <div class="browser-bar">
                     <span class="browser-dot red"></span>
                     <span class="browser-dot yellow"></span>
                     <span class="browser-dot green"></span>
                 </div>
-                <img src="../assets/img/proyecto-web-fastsupplies.png" alt="Sitio web de Fast Supplies E.I.R.L.">
+                <div class="img-frame"><img src="../assets/img/proyecto-web-fastsupplies.webp" alt="Sitio web de Fast Supplies E.I.R.L."></div>
                 <div class="web-project-info">
                     <h3>Fast Supplies E.I.R.L.</h3>
                     <p>Distribución mayorista de calzado premium.</p>
@@ -128,7 +141,7 @@
                     <span class="browser-dot yellow"></span>
                     <span class="browser-dot green"></span>
                 </div>
-                <img src="../assets/img/proyecto-web-holistic.png" alt="Sitio web de Holistic Business S.A.C.">
+                <div class="img-frame"><img src="../assets/img/proyecto-web-holistic.webp" alt="Sitio web de Holistic Business S.A.C."></div>
                 <div class="web-project-info">
                     <h3>Holistic Business S.A.C.</h3>
                     <p>Importación textil de alto volumen.</p>
@@ -142,20 +155,19 @@
                     <span class="browser-dot yellow"></span>
                     <span class="browser-dot green"></span>
                 </div>
-                <img src="../assets/img/proyecto-web-emilydecohogar.png" alt="Sitio web de Emily Deco Hogar">
+                <div class="img-frame"><img src="../assets/img/proyecto-web-emilydecohogar.webp" alt="Sitio web de Emily Deco Hogar"></div>
                 <div class="web-project-info">
                     <h3>Emily Deco Hogar</h3>
                     <p>Cortinas y roller a medida en Lima.</p>
                     <a href="https://maycolfree1.wixsite.com/emilydecohogar" class="web-project-link" target="_blank" rel="noopener noreferrer">Ver sitio en vivo <i class="fas fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
-
         </div>
     </section>
 <footer>
         <div class="footer-main">
             <div class="footer-brand">
-                <img src="../assets/img/yapaseo-pie-de-pagina.png" alt="Yapaseo Logo Footer">
+                <img src="../assets/img/yapaseo-pie-de-pagina.webp" alt="Yapaseo Logo Footer">
                 <p>Estructuramos activos estables y de alta conversión para escalar la facturación de tu negocio.</p>
             </div>
 
@@ -248,6 +260,28 @@
 
             document.addEventListener('mouseleave', () => {
                 owl.style.transform = `translate(0px, 35px)`;
+            });
+        }
+
+        // Menú móvil (overlay a pantalla completa)
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            const closeMobileMenu = () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            menuToggle.addEventListener('click', () => {
+                const isActive = menuToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active', isActive);
+                document.body.style.overflow = isActive ? 'hidden' : '';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) closeMobileMenu();
             });
         }
     </script>

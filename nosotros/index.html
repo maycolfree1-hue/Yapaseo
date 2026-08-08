@@ -14,7 +14,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Nosotros | Yapaseo - Agencia de Marketing Digital en Lima">
     <meta property="og:description" content="Nuestra metodología de trabajo y las historias de éxito de nuestros clientes.">
-    <meta property="og:image" content="../assets/img/yapaseo-rectangular-blanco.png">
+    <meta property="og:image" content="../assets/img/yapaseo-rectangular-blanco.webp">
     <meta property="og:url" content="https://yapaseo.com/nosotros/">
 
     <link rel="icon" type="image/png" href="../assets/img/Favicon-yapaseo.png">
@@ -29,8 +29,8 @@
 
     <nav id="smart-nav">
         <a href="../" class="logo-container" data-target="inicio">
-            <img src="../assets/img/yapaseo-rectangular-negro.png" alt="Yapaseo Logo Negro" class="logo-img logo-dark">
-            <img src="../assets/img/yapaseo-rectangular-blanco.png" alt="Yapaseo Logo Blanco" class="logo-img logo-light">
+            <img src="../assets/img/yapaseo-rectangular-negro.webp" alt="Yapaseo Logo Negro" class="logo-img logo-dark">
+            <img src="../assets/img/yapaseo-rectangular-blanco.webp" alt="Yapaseo Logo Blanco" class="logo-img logo-light">
             <span class="logo-divider">|</span>
             <span class="logo-tagline">Agencia de Marketing en Lima</span>
         </a>
@@ -41,15 +41,29 @@
             <a href="../nosotros/">Nosotros</a>
             <a href="../articulos/">Artículos</a>
         </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
         <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </nav>
 
+    <div class="mobile-menu-overlay" id="mobileMenu">
+<a href="../" data-target="inicio">Inicio</a>
+            <a href="../servicios/" data-target="servicios">Servicios</a>
+            <a href="../#portafolio" data-target="portafolio">Portafolio</a>
+            <a href="../nosotros/">Nosotros</a>
+            <a href="../articulos/">Artículos</a>
+        <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
     <section class="founder-section" id="fundador">
         <div class="founder-container">
             <div class="founder-photo-wrap">
-                <img src="../assets/img/maycol-barrios.png" alt="Maycol Barrios - Fundador de Yapaseo">
+                <img src="../assets/img/maycol-barrios.webp" alt="Maycol Barrios - Fundador de Yapaseo">
             </div>
             <div class="founder-info">
                 <span class="founder-label">Quién está detrás de Yapaseo</span>
@@ -117,7 +131,7 @@
                     <p>El diseño y desarrollo de nuestra web fue impecable. Lograron transmitir la calidad de nuestros 20 años de experiencia en cortinas y decoración. Ahora recibimos prospectos calificados constantemente.</p>
                 </div>
                 <div class="testi-author-area">
-                    <img src="../assets/img/Emily-deco-hogar.png" alt="Logo Emily Deco Hogar" class="testi-logo-img">
+                    <img src="../assets/img/Emily-deco-hogar.webp" alt="Logo Emily Deco Hogar" class="testi-logo-img">
                     <h4>Emily Deco Hogar</h4>
                     <span class="author-role">Gerente General</span>
                 </div>
@@ -131,7 +145,7 @@
                     <p>Agradecemos el gran trabajo en la creación de nuestra identidad visual y ecosistema digital. Es exactamente el salto de calidad y el soporte tecnológico que buscábamos para posicionarnos en el mercado.</p>
                 </div>
                 <div class="testi-author-area">
-                    <img src="../assets/img/Inka-brew.png" alt="Logo InkaBrew" class="testi-logo-img">
+                    <img src="../assets/img/Inka-brew.webp" alt="Logo InkaBrew" class="testi-logo-img">
                     <h4>InkaBrew</h4>
                     <span class="author-name">Juan Pérez</span>
                     <span class="author-role">Fundador</span>
@@ -146,7 +160,7 @@
                     <p>Con su servicio de edición de video, nuestra retención de audiencia se disparó. Capturaron perfectamente la esencia de nuestra marca y convirtieron nuestras redes sociales en un verdadero motor de ventas.</p>
                 </div>
                 <div class="testi-author-area">
-                    <img src="../assets/img/Vital-fit.png" alt="Logo VitalFit" class="testi-logo-img">
+                    <img src="../assets/img/Vital-fit.webp" alt="Logo VitalFit" class="testi-logo-img">
                     <h4>VitalFit</h4>
                     <span class="author-name">Carlos Mendoza</span>
                     <span class="author-role">Jefe de Marketing</span>
@@ -158,7 +172,7 @@
 <footer>
         <div class="footer-main">
             <div class="footer-brand">
-                <img src="../assets/img/yapaseo-pie-de-pagina.png" alt="Yapaseo Logo Footer">
+                <img src="../assets/img/yapaseo-pie-de-pagina.webp" alt="Yapaseo Logo Footer">
                 <p>Estructuramos activos estables y de alta conversión para escalar la facturación de tu negocio.</p>
             </div>
 
@@ -251,6 +265,28 @@
 
             document.addEventListener('mouseleave', () => {
                 owl.style.transform = `translate(0px, 35px)`;
+            });
+        }
+
+        // Menú móvil (overlay a pantalla completa)
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            const closeMobileMenu = () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            menuToggle.addEventListener('click', () => {
+                const isActive = menuToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active', isActive);
+                document.body.style.overflow = isActive ? 'hidden' : '';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) closeMobileMenu();
             });
         }
     </script>
