@@ -54,11 +54,27 @@
             <a href="nosotros/">Nosotros</a>
             <a href="articulos/">Artículos</a>
         </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
         <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </nav>
 
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="./" data-target="inicio">Inicio</a>
+        <a href="servicios/" data-target="servicios">Servicios</a>
+        <a href="#portafolio" data-target="portafolio">Portafolio</a>
+        <a href="nosotros/">Nosotros</a>
+        <a href="articulos/">Artículos</a>
+        <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
+
+    <main>
 <section class="hero" id="inicio">
         <div class="hero-container">
             <div class="hero-content">
@@ -164,6 +180,7 @@
             </div>
         </div>
     </section>
+    </main>
 <footer>
         <div class="footer-main">
             <div class="footer-brand">
@@ -260,6 +277,28 @@
 
             document.addEventListener('mouseleave', () => {
                 owl.style.transform = `translate(0px, 35px)`;
+            });
+        }
+
+        // Menú móvil (overlay a pantalla completa)
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            const closeMobileMenu = () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            menuToggle.addEventListener('click', () => {
+                const isActive = menuToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active', isActive);
+                document.body.style.overflow = isActive ? 'hidden' : '';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) closeMobileMenu();
             });
         }
     </script>
