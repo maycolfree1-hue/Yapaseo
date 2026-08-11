@@ -38,7 +38,8 @@
         @font-face { font-family: 'Font Awesome 6 Free'; font-style: normal; font-weight: 400; font-display: swap; src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2") format("woff2"); }
         @font-face { font-family: 'Font Awesome 6 Brands'; font-style: normal; font-weight: 400; font-display: swap; src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2") format("woff2"); }
     </style>
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="preload" href="assets/css/estilos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/estilos.css"></noscript>
 </head>
 <body>
 
