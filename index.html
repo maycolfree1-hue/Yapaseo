@@ -255,17 +255,24 @@
         const owl = document.getElementById('interactive-owl');
         
         if (owl && window.innerWidth > 900) {
-            // Se calcula la posición del búho una sola vez (y al hacer resize),
-            // en vez de forzar un reflow en cada movimiento del mouse.
-            let owlRect = owl.getBoundingClientRect();
+            // La posición del búho se calcula en el siguiente frame (no de forma
+            // síncrona aquí), para no forzar un reflow durante el parseo inicial.
+            let owlRect = null;
             let ticking = false;
             let lastEvent = null;
 
-            window.addEventListener('resize', () => {
+            requestAnimationFrame(() => {
                 owlRect = owl.getBoundingClientRect();
             });
 
+            window.addEventListener('resize', () => {
+                requestAnimationFrame(() => {
+                    owlRect = owl.getBoundingClientRect();
+                });
+            });
+
             function updateOwl() {
+                if (!owlRect) { ticking = false; return; }
                 const e = lastEvent;
                 const owlCenterX = owlRect.left + owlRect.width / 2;
                 const owlCenterY = owlRect.top + owlRect.height / 2;
