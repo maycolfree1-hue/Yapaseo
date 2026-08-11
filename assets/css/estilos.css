@@ -347,8 +347,8 @@
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .menu-toggle { display: flex; }
-            .web-projects { padding: 0 5% 70px 5%; }
-            .web-projects-grid { gap: 30px; }
+            .web-projects { padding: 70px 8% 70px 8% !important; }
+            .web-projects-grid { gap: 30px; padding: 0 2px; }
             .founder-section { padding: 130px 5% 70px 5%; }
             .founder-container { grid-template-columns: 1fr; text-align: center; gap: 30px; }
             .founder-photo-wrap img { max-width: 260px; }
