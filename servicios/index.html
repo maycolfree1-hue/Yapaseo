@@ -60,22 +60,28 @@
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
             <span></span><span></span><span></span>
         </button>
-        <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/51971050584" class="btn-nav-ws nav-ws-desktop" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </nav>
 
     <div class="mobile-menu-overlay" id="mobileMenu">
-<a href="../" data-target="inicio">Inicio</a>
-            <a href="../servicios/" data-target="servicios">Servicios</a>
-            <a href="../portafolio" data-target="portafolio">Portafolio</a>
-            <a href="../nosotros/">Nosotros</a>
-            <a href="../articulos/">Artículos</a>
-        <a href="https://wa.me/51971050584" class="btn-nav-ws" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> WhatsApp
+        <div class="mobile-menu-links">
+            <a href="../" class="mobile-link"><span class="mobile-link-icon"><i class="fas fa-house"></i></span>Inicio</a>
+            <a href="../servicios/" class="mobile-link"><span class="mobile-link-icon"><i class="fas fa-layer-group"></i></span>Servicios</a>
+            <a href="../portafolio/" class="mobile-link"><span class="mobile-link-icon"><i class="fas fa-images"></i></span>Portafolio</a>
+            <a href="../nosotros/" class="mobile-link"><span class="mobile-link-icon"><i class="fas fa-users"></i></span>Nosotros</a>
+            <a href="../articulos/" class="mobile-link"><span class="mobile-link-icon"><i class="fas fa-newspaper"></i></span>Artículos</a>
+        </div>
+        <a href="https://wa.me/51971050584" class="btn-nav-ws mobile-menu-ws" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Cotizar por WhatsApp
         </a>
     </div>
 
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/51971050584" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatea por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <main>
 <section id="servicios">
@@ -301,22 +307,31 @@
             });
         }
 
-        // Menú móvil (overlay a pantalla completa)
+        // Menú móvil (panel desplegable, no pantalla completa)
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         if (menuToggle && mobileMenu) {
             const closeMobileMenu = () => {
                 menuToggle.classList.remove('active');
                 mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
             };
-            menuToggle.addEventListener('click', () => {
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
                 const isActive = menuToggle.classList.toggle('active');
                 mobileMenu.classList.toggle('active', isActive);
-                document.body.style.overflow = isActive ? 'hidden' : '';
             });
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', closeMobileMenu);
+            });
+            // Cerrar el menú al hacer clic fuera de él
+            document.addEventListener('click', (e) => {
+                if (
+                    mobileMenu.classList.contains('active') &&
+                    !mobileMenu.contains(e.target) &&
+                    !menuToggle.contains(e.target)
+                ) {
+                    closeMobileMenu();
+                }
             });
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 900) closeMobileMenu();
