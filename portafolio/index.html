@@ -378,6 +378,15 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- BANNER DE COOKIES -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Usamos cookies para mejorar su experiencia de navegación y analizar nuestro tráfico: <a href="../uso-de-datos/">Uso de datos</a></p>
+        <div class="cookie-banner-actions">
+            <button type="button" class="cookie-btn cookie-btn-close" id="cookieReject">Cerrar</button>
+            <button type="button" class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar</button>
+        </div>
+    </div>
+
     <main>
 
         <!-- ENCABEZADO PORTAFOLIO -->
@@ -501,9 +510,9 @@
             <div class="footer-col">
                 <span class="footer-title">Legales</span>
                 <ul class="footer-links">
-                    <li><a href="#">Política de privacidad</a></li>
-                    <li><a href="#">Términos y condiciones</a></li>
-                    <li><a href="#">Política de Cookies</a></li>
+                    <li><a href="../politica-de-privacidad/">Política de privacidad</a></li>
+                    <li><a href="../terminos-y-condiciones/">Términos y condiciones</a></li>
+                    <li><a href="../uso-de-datos/">Política de Cookies</a></li>
                     <li><a href="#"><i class="fas fa-book"></i> Libro de reclamaciones</a></li>
                 </ul>
             </div>
@@ -621,6 +630,49 @@
                 if (window.innerWidth > 900) closeMobileMenu();
             });
         }
+
+        // ===== BANNER DE COOKIES =====
+        (function() {
+            const COOKIE_CONSENT_KEY = "yapaseo_cookie_consent";
+            const cookieBanner = document.getElementById("cookieBanner");
+            const cookieAccept = document.getElementById("cookieAccept");
+            const cookieReject = document.getElementById("cookieReject");
+            const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+
+            // Aquí se activarán los scripts de analítica/publicidad (Google Analytics,
+            // Meta Pixel, etc.) únicamente cuando el usuario haya dado su consentimiento.
+            // Por ahora no hay ningún script de este tipo instalado en el sitio.
+            function enableTracking() {
+                // Ejemplo futuro:
+                // const gaScript = document.createElement("script");
+                // gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
+                // document.head.appendChild(gaScript);
+            }
+
+            if (cookieBanner) {
+                if (!consent) {
+                    cookieBanner.classList.add("show");
+                } else if (consent === "accepted") {
+                    enableTracking();
+                }
+
+                if (cookieAccept) {
+                    cookieAccept.addEventListener("click", () => {
+                        localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+                        cookieBanner.classList.remove("show");
+                        enableTracking();
+                    });
+                }
+
+                if (cookieReject) {
+                    cookieReject.addEventListener("click", () => {
+                        localStorage.setItem(COOKIE_CONSENT_KEY, "rejected");
+                        cookieBanner.classList.remove("show");
+                        // No se carga ningún script de rastreo.
+                    });
+                }
+            }
+        })();
     </script>
 </body>
 </html>
