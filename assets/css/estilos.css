@@ -519,6 +519,7 @@
         .cookie-btn-accept { background: var(--yellow-brand); color: #000; }
         @media (max-width: 640px) {
             .cookie-banner { bottom: 12px; padding: 18px; flex-direction: column; align-items: stretch; text-align: left; }
+            .cookie-banner p { flex: none; }
             .cookie-banner-actions { justify-content: flex-end; }
         }
 
